@@ -140,7 +140,7 @@ const Preloader = ({ onComplete, ready }) => {
     };
   }, []);
 
-  const { play } = useAudio();
+  const { play, audioEnabled } = useAudio();
   // Track audio handle to stop loop
   const pencilSoundRef = useRef(null);
 
@@ -224,7 +224,7 @@ const Preloader = ({ onComplete, ready }) => {
   // Handle Pencil Sound & Exit checking dynamically
   const checkProgressTriggers = (val) => {
     // Pencil Sound
-    if (val < 99 && !pencilSoundRef.current) {
+    if (audioEnabled && val < 99 && !pencilSoundRef.current) {
       pencilSoundRef.current = play('pencil', { loop: true, volume: 0.5 });
     }
     else if (val >= 99 && pencilSoundRef.current) {
@@ -250,16 +250,16 @@ const Preloader = ({ onComplete, ready }) => {
 
   useEffect(() => {
     const distance = targetProgress - displayProgressRef.current;
-    let duration = 0.5;
+    let duration = 0.25;
 
     if (distance > 60) {
-      duration = 1.5;
-    } else if (distance > 30) {
-      duration = 1.0;
-    } else if (distance > 10) {
       duration = 0.6;
+    } else if (distance > 30) {
+      duration = 0.45;
+    } else if (distance > 10) {
+      duration = 0.35;
     } else if (distance > 0) {
-      duration = 0.4;
+      duration = 0.25;
     }
 
     gsap.to(trackerRef.current, {
@@ -308,7 +308,7 @@ const Preloader = ({ onComplete, ready }) => {
       pencilSoundRef.current.stop();
       pencilSoundRef.current = null;
     }
-    play('tear', { volume: 0.8 });
+    if (audioEnabled) play('tear', { volume: 0.8 });
 
     const tl = gsap.timeline({
       onComplete: () => {
@@ -332,22 +332,22 @@ const Preloader = ({ onComplete, ready }) => {
     tl.to(leftHalfRef.current, {
       xPercent: -100,
       rotation: -2,
-      duration: 1.8,
+      duration: 0.9,
       ease: "power3.inOut"
     }, 'tear');
 
     tl.to(rightHalfRef.current, {
       xPercent: 100,
       rotation: 2,
-      duration: 1.8,
+      duration: 0.9,
       ease: "power3.inOut"
     }, 'tear');
 
     // 3. Fade container
     tl.to(containerRef.current, {
       opacity: 0,
-      duration: 0.5
-    }, '-=0.5');
+      duration: 0.3
+    }, '-=0.3');
   };
 
   if (isDone) return null;

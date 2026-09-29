@@ -1,87 +1,40 @@
-import { useState, Suspense, useEffect, useCallback, useLayoutEffect, lazy } from 'react';
-import { Canvas, useThree, useFrame, useLoader } from '@react-three/fiber';
-import { Preload, useTexture, Text, PerformanceMonitor } from '@react-three/drei';
+import { useState, Suspense, useEffect, useCallback, lazy } from 'react';
+import { Canvas, useThree } from '@react-three/fiber';
+import { useTexture, PerformanceMonitor } from '@react-three/drei';
 import * as THREE from 'three';
 
 import Preloader from './components/dom/Preloader';
-import PaperTransition from './components/dom/PaperTransition';
 import { AudioProvider, useAudio } from './context/AudioManager';
 import { initAudio } from './utils/audioManager';
 import { PerformanceProvider, usePerformance } from './context/PerformanceContext';
 import { SceneProvider, useScene } from './context/SceneContext';
-import NavigationUI from './components/ui/NavigationUI';
-import GlobalOverlay from './components/ui/GlobalOverlay';
-import ScreenReaderOverlay from './components/ui/ScreenReaderOverlay';
 import { useDocumentMeta } from './hooks/useDocumentMeta';
-import posthog from 'posthog-js';
-import { loadSanityData } from './hooks/useSanityData';
-
-// Initialize PostHog
-posthog.init(import.meta.env.VITE_POSTHOG_KEY, {
-  api_host: import.meta.env.VITE_POSTHOG_HOST,
-  person_profiles: 'identified_only', // or 'always' to create profiles for anonymous users as well
-});
+import { initAnalytics } from './utils/analytics';
 
 // Lazy load the heavy 3D experience
 const Experience = lazy(() => import('./components/canvas/Experience'));
+const NavigationUI = lazy(() => import('./components/ui/NavigationUI'));
+const GlobalOverlay = lazy(() => import('./components/ui/GlobalOverlay'));
+const ScreenReaderOverlay = lazy(() => import('./components/ui/ScreenReaderOverlay'));
+const PaperTransition = lazy(() => import('./components/dom/PaperTransition'));
 
 import './styles/main.scss';
 
-// --- CONDITIONAL ASSET PRELOADING ---
-// On high-end devices, preloads everything for zero stutter.
-// On mobile/low-end devices, only preloads core textures to prevent Out Of Memory crashes.
-import { 
-  ENTRANCE_TEXTURES, 
-  CORRIDOR_TEXTURES, 
-  UI_TEXTURES,
-  PRELOAD_ALL, 
-  PRELOAD_LOADER,
-  ABOUT_TEXTURES,
-  IMAGE_ASSETS,
-  filterTexturesByDevice
-} from './config/texturePreloadList';
-import { TextureLoader } from 'three';
+// --- CRITICAL ASSET PRELOADING ---
+import { ENTRANCE_TEXTURES } from './config/texturePreloadList';
 
-// Standard Browser-level Image Preloader (for <img> tags)
-const preloadBrowserImage = (path) => {
-  if (typeof window === 'undefined') return;
-  const img = new Image();
-  img.src = path;
-};
-
-const isMobileDevice = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent || '');
-const isWeakCPU = typeof navigator.hardwareConcurrency !== 'undefined' && navigator.hardwareConcurrency <= 4;
-const isLowRAM = typeof navigator.deviceMemory !== 'undefined' && navigator.deviceMemory <= 4;
-const isSmallScreen = typeof window !== 'undefined' && window.innerWidth < 450;
-const isLowEnd = isMobileDevice || isWeakCPU || isLowRAM || isSmallScreen;
-
-// Refined check for "hover capability" (non-touch devices should have hover: hover)
-// Laptops with touch screens (which also have a mouse/trackpad) will return true here.
-const supportsHover = typeof window !== 'undefined' && window.matchMedia('(hover: hover)').matches;
-
-// Trigger Three.js preloads at module level (as standard for Drei)
-if (isLowEnd) {
-  const CORE_TEXTURES = [...ENTRANCE_TEXTURES, ...CORRIDOR_TEXTURES, ...UI_TEXTURES, ...IMAGE_ASSETS];
-  const filteredCore = filterTexturesByDevice(CORE_TEXTURES, supportsHover);
-  const filteredAbout = filterTexturesByDevice(ABOUT_TEXTURES, supportsHover);
-
-  filteredCore.forEach(path => useTexture.preload(path));
-  filteredAbout.forEach(path => useLoader.preload(TextureLoader, path));
-} else {
-  const filteredAll = filterTexturesByDevice(PRELOAD_ALL, supportsHover);
-  const filteredLoader = filterTexturesByDevice(PRELOAD_LOADER, supportsHover);
-  
-  filteredAll.forEach(path => useTexture.preload(path));
-  filteredLoader.forEach(path => useLoader.preload(TextureLoader, path));
-}
-
-const FONT_URL = 'https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hjp-Ek-_EeA.woff';
+// Only the first visible scene belongs on the critical path. Corridor and room
+// assets are requested after the entrance is visible or when a room is opened.
+ENTRANCE_TEXTURES.forEach(path => useTexture.preload(path));
 
 // Helper component to handle global audio enable on interaction
 const GlobalAudioEnabler = () => {
   const { enableAudio } = useAudio();
   useEffect(() => {
-    const handleInteraction = () => enableAudio();
+    const handleInteraction = () => {
+      initAudio();
+      enableAudio();
+    };
     window.addEventListener('click', handleInteraction, { once: true });
     window.addEventListener('touchstart', handleInteraction, { once: true });
     window.addEventListener('keydown', handleInteraction, { once: true });
@@ -135,12 +88,7 @@ function AppContent() {
   const [sceneReady, setSceneReady] = useState(false);
 
   // Use Performance Context
-  const { settings, downgradeTier, tier } = usePerformance();
-
-  // Force initialize audio in the background on mount
-  useEffect(() => {
-    initAudio();
-  }, []);
+  const { settings, downgradeTier } = usePerformance();
 
   const handleSceneReady = useCallback(() => {
     requestAnimationFrame(() => {
@@ -190,21 +138,19 @@ function AppContent() {
                 <Experience
                   isLoaded={isLoaded}
                   onSceneReady={handleSceneReady}
-                  performanceTier={tier}
                 />
-                <Preload all />
               </Suspense>
             </Canvas>
           </div>
 
           {/* Navigation UI - Hamburger, Map, Back, Audio */}
           {isLoaded && (
-            <>
+            <Suspense fallback={null}>
               <NavigationUI />
               <GlobalOverlay />
               <PaperTransition />
               <ScreenReaderOverlay />
-            </>
+            </Suspense>
           )}
 
           {/* 2D Preloader */}
@@ -221,15 +167,15 @@ function AppContent() {
 import { AchievementsProvider } from './context/AchievementsContext';
 
 export default function App() {
-  // Preload browser-based images (for standard <img> tags) immediately upon mounting App
-  // This ensures they are in the network waterfall during the initial loading phase.
   useEffect(() => {
-    // Eagerly preload Sanity CMS data and images
-    loadSanityData();
-
-    const filteredImages = filterTexturesByDevice(IMAGE_ASSETS, supportsHover);
-    // console.log(`[Preload] Triggering browser-level image preloads for ${filteredImages.length} assets.`);
-    filteredImages.forEach(path => preloadBrowserImage(path));
+    // Analytics is non-critical and should never compete with the 3D entrance.
+    const start = () => initAnalytics();
+    if ('requestIdleCallback' in window) {
+      const id = window.requestIdleCallback(start, { timeout: 4000 });
+      return () => window.cancelIdleCallback(id);
+    }
+    const id = window.setTimeout(start, 2500);
+    return () => window.clearTimeout(id);
   }, []);
 
   return (

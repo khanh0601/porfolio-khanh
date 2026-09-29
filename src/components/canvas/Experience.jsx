@@ -1,11 +1,10 @@
-import { useState, useCallback, useEffect, useRef } from 'react';
-import { useFrame, useThree } from '@react-three/fiber';
+import { Suspense, useCallback, useEffect } from 'react';
+import { useThree } from '@react-three/fiber';
 
 import InfiniteCorridorManager from './corridor/InfiniteCorridorManager';
 import EntranceDoors from './entrance/EntranceDoors';
 import EmptyCorridor from './entrance/EmptyCorridor';
 import TeleportRoom from './corridor/TeleportRoom';
-import RoomWarmup from './corridor/RoomWarmup';
 import useInfiniteCamera from '../../hooks/useInfiniteCamera';
 import SignSystem from './entrance/SignSystem';
 import { useScene } from '../../context/SceneContext';
@@ -25,9 +24,9 @@ const ENTRANCE_DOORS_Z = 22;
  * 2. Click doors -> they open + camera flies through
  * 3. Behind doors: infinite corridor with ITOM
  */
-const Experience = ({ isLoaded, onSceneReady, performanceTier }) => {
+const Experience = ({ isLoaded, onSceneReady }) => {
     // Use SceneContext for room state
-    const { hasEntered, markEntered, enterRoom, isTeleporting, isInRoom, pendingDoorClick } = useScene();
+    const { hasEntered, markEntered, enterRoom, isTeleporting, isInRoom } = useScene();
 
     const { camera } = useThree();
 
@@ -59,17 +58,15 @@ const Experience = ({ isLoaded, onSceneReady, performanceTier }) => {
         // console.log('Entering:', doorId);
     }, [enterRoom]);
 
-    // Optimization: Low tier has simpler lighting
-    const isLowTier = performanceTier === 'LOW';
+    // The component only commits after the entrance assets inside the parent
+    // Suspense boundary are ready. Room shader compilation is intentionally not
+    // part of first load anymore.
+    useEffect(() => {
+        onSceneReady?.();
+    }, [onSceneReady]);
 
     return (
         <>
-            {/* === ROOM WARM-UP (pre-renders all rooms off-screen during preloader) === */}
-            {/* RoomWarmup mounts all 4 rooms 500 units below, compiles shaders via gl.compile(), 
-                then self-destructs and signals onSceneReady. This ensures both corridor segments
-                AND room shaders are pre-compiled before the user starts interacting. */}
-            <RoomWarmup onWarmupComplete={onSceneReady} isLowTier={isLowTier} />
-
             {/* === GLOBAL LIGHTING === */}
             {/* <ambientLight intensity={isLowTier ? 2.5 : 2.2} /> */}
             {/* <directionalLight
@@ -100,12 +97,18 @@ const Experience = ({ isLoaded, onSceneReady, performanceTier }) => {
             )}
 
             {/* === INFINITE CORRIDOR (segment -1 SegmentDoors hidden during entrance) === */}
-            <InfiniteCorridorManager
-                onDoorEnter={handleDoorEnter}
-                hideDoorsForSegments={hasEntered ? [] : [-1]} // Hide segment -1's doors until entered
-                clipSegmentNeg1={!hasEntered} // Clip segment -1 visualization until entered
-                setCameraOverride={setCameraOverride}
-            />
+            {/* Start loading the corridor after the entrance is visible. Its own
+                boundary keeps late assets from blanking the entrance scene. */}
+            {isLoaded && (
+                <Suspense fallback={null}>
+                    <InfiniteCorridorManager
+                        onDoorEnter={handleDoorEnter}
+                        hideDoorsForSegments={hasEntered ? [] : [-1]}
+                        clipSegmentNeg1={!hasEntered}
+                        setCameraOverride={setCameraOverride}
+                    />
+                </Suspense>
+            )}
 
             {/* === TELEPORT ROOM (renders room directly during teleportation) === */}
             <TeleportRoom />
@@ -114,4 +117,3 @@ const Experience = ({ isLoaded, onSceneReady, performanceTier }) => {
 };
 
 export default Experience;
-

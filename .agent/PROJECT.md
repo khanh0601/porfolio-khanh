@@ -114,8 +114,8 @@ const ExampleRoom = ({ showRoom, onReady, isExiting }) => {
 ## 📬 Contact Room - Message Paper Feature
 
 ### Current Implementation
-- **Paper texture**: `public/textures/contact/paper_form.png`
-- **Button texture**: `public/textures/contact/send_button.png`
+- **Paper texture**: `public/textures/contact/paper_form.webp`
+- **Button texture**: `public/textures/contact/send_button.webp`
 - **Component**: `src/components/canvas/rooms/Contact/MessagePaper.jsx`
 
 ### Features
@@ -131,7 +131,6 @@ const ExampleRoom = ({ showRoom, onReady, isExiting }) => {
 |------|---------|
 | `ContactRoom.jsx` | Main room, camera animation |
 | `MessagePaper.jsx` | Interactive paper form |
-| `TornPaperGeometry.js` | Torn edge geometry generator |
 
 ---
 

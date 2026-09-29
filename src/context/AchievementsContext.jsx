@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect, useCallback, useRef } from 'react';
 import { useAudio } from './AudioManager';
-import posthog from 'posthog-js';
+import { captureEvent } from '../utils/analytics';
 
 const AchievementsContext = createContext();
 
@@ -126,7 +126,7 @@ export const AchievementsProvider = ({ children }) => {
             // Send event to PostHog
             const achievementData = ACHIEVEMENTS[id];
             if (achievementData) {
-                posthog.capture('achievement_unlocked', {
+                captureEvent('achievement_unlocked', {
                     achievement_id: id,
                     achievement_title: achievementData.title,
                 });

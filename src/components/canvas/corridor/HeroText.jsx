@@ -56,19 +56,19 @@ const HeroText = ({ position = [0, 0.3, 0] }) => {
 
     // Letter positions for KHANH split effect
     const letters = useMemo(() => [
-        { char: 'K', baseX: -1.05, splitDir: -1.8, delay: 0 },
-        { char: 'H', baseX: -0.52, splitDir: -0.9, delay: 0 },
-        { char: 'A', baseX: 0.00, splitDir: 0.0, delay: 0 },
-        { char: 'N', baseX: 0.52, splitDir: 0.9, delay: 0 },
-        { char: 'H', baseX: 1.05, splitDir: 1.8, delay: 0 },
+        { char: 'K', baseX: -1.35, splitDir: -1.8, delay: 0 },
+        { char: 'H', baseX: -0.70, splitDir: -1.0, delay: 0 },
+        { char: 'A', baseX: 0.00, splitDir: 0.0, liftDir: 1.0, delay: 0 },
+        { char: 'N', baseX: 0.70, splitDir: 1.0, delay: 0 },
+        { char: 'H', baseX: 1.35, splitDir: 1.8, delay: 0 },
     ], []);
 
-    // Tagline words for split effect
+    // Tagline words for split effect - placed near the floor below feet
     const taglineWords = useMemo(() => [
-        { text: '<', baseX: -0.90, splitDir: -1.5, delay: 0 },
-        { text: 'product', baseX: -0.40, splitDir: -0.8, delay: 0 },
-        { text: 'engineer', baseX: 0.40, splitDir: 0.8, delay: 0 },
-        { text: '/>', baseX: 0.90, splitDir: 1.5, delay: 0 },
+        { text: '<', baseX: -0.95, splitDir: -1.6, delay: 0 },
+        { text: 'product', baseX: -0.42, splitDir: -0.9, delay: 0 },
+        { text: 'engineer', baseX: 0.42, splitDir: 0.9, delay: 0 },
+        { text: '/>', baseX: 0.95, splitDir: 1.6, delay: 0 },
     ], []);
 
     // Animation loop
@@ -98,16 +98,16 @@ const HeroText = ({ position = [0, 0.3, 0] }) => {
 
         splitAmount.current = THREE.MathUtils.lerp(splitAmount.current, targetSplit.current, 0.08);
 
-        // Apply split to each letter of ITOM
+        // Apply split to each letter of KHANH
         letterRefs.current.forEach((ref, i) => {
             if (ref) {
-                // Ensure opacity is 1
                 if (ref.material) ref.material.opacity = 1;
-                ref.scale.setScalar(1); // Ensure scale is 1, no lingering pop effect
+                ref.scale.setScalar(1);
 
                 const letter = letters[i];
                 ref.position.x = letter.baseX + letter.splitDir * splitAmount.current;
-                ref.position.y = 0.2 + Math.sin(time * 0.7 + i * 0.5) * 0.015;
+                const lift = letter.liftDir ? letter.liftDir * splitAmount.current : 0;
+                ref.position.y = 0.2 + lift + Math.sin(time * 0.7 + i * 0.5) * 0.015;
                 ref.rotation.z = Math.sin(time * 0.5 + i) * 0.02 * (1 + splitAmount.current);
             }
         });
@@ -115,24 +115,22 @@ const HeroText = ({ position = [0, 0.3, 0] }) => {
         // Apply split to tagline words
         taglineRefs.current.forEach((ref, i) => {
             if (ref) {
-                // Ensure opacity is 1
                 if (ref.material) ref.material.opacity = 1;
 
                 const word = taglineWords[i];
                 ref.position.x = word.baseX + word.splitDir * splitAmount.current * 0.6;
-                ref.position.y = -0.45 + Math.sin(time * 0.6 + i * 0.3) * 0.008;
+                ref.position.y = -1.95 + Math.sin(time * 0.6 + i * 0.3) * 0.008;
             }
         });
 
         // === FLOATING ANIMATION ===
         floatY.current = Math.sin(time * 0.5) * 0.02;
-        // Don't override Y position entirely, add to base
         groupRef.current.position.y = position[1] + floatY.current;
     });
 
     return (
-        <group ref={groupRef} position={position} scale={[scale, scale, 1]}>
-            {/* ITOM Letters - Rubik Scribble font with fade-in animation */}
+        <group ref={groupRef} position={position} scale={[scale, scale, 1]} renderOrder={1}>
+            {/* KHANH Letters - Rubik Scribble font with fade-in animation */}
             {letters.map((letter, i) => (
                 <Text
                     key={`${letter.char}-${i}`}
@@ -146,33 +144,37 @@ const HeroText = ({ position = [0, 0.3, 0] }) => {
                     anchorX="center"
                     anchorY="middle"
                     letterSpacing={0}
+                    depthTest={true}
+                    depthWrite={false}
                 >
                     {letter.char}
                 </Text>
             ))}
 
-            {/* Tagline words - Cabin Sketch font with fade-in animation */}
+            {/* Tagline words - Cabin Sketch font near floor */}
             {taglineWords.map((word, i) => (
                 <Text
                     key={word.text}
                     ref={(el) => (taglineRefs.current[i] = el)}
-                    position={[word.baseX, -0.55, 0.3]}
+                    position={[word.baseX, -1.95, 0.3]}
                     fontSize={0.16}
                     font={CABIN_SKETCH_URL}
                     color="#555555"
                     anchorX="center"
                     anchorY="middle"
                     letterSpacing={0.04}
+                    depthTest={true}
+                    depthWrite={false}
                 >
                     {word.text}
                 </Text>
             ))}
 
             {/* Small decorative doodles around title */}
-            <SmallStar position={[-1.2, 0.55, 0]} scale={0.07} />
-            <SmallStar position={[1.25, 0.45, 0]} scale={0.05} />
-            <SmallStar position={[-1.0, -0.6, 0]} scale={0.04} />
-            <SmallStar position={[1.1, -0.55, 0]} scale={0.035} />
+            <SmallStar position={[-1.55, 0.55, 0]} scale={0.07} />
+            <SmallStar position={[1.55, 0.45, 0]} scale={0.05} />
+            <SmallStar position={[-1.1, -1.9, 0]} scale={0.04} />
+            <SmallStar position={[1.1, -1.85, 0]} scale={0.035} />
         </group>
     );
 };

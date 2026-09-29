@@ -3,8 +3,6 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="preconnect" href="https://cdn.sanity.io" crossorigin />
-  <link rel="preconnect" href="https://kv5wjjmj.apicdn.sanity.io" crossorigin />
   <link rel="preload" as="image" href="/textures/paper-texture.webp" type="image/webp" fetchpriority="high" crossorigin="anonymous">
   <link rel="icon" type="image/png" href="/favico.png" />
   <link rel="apple-touch-icon" href="/favico.png" />
@@ -46,7 +44,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Gloria+Hallelujah&family=Inter:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet">
+    rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Gloria+Hallelujah&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet">
+  </noscript>
 
   <!-- Preload bazowych tekstur używanych w preloaderze -->
 

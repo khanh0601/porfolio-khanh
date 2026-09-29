@@ -122,12 +122,12 @@ const Avatar = ({ position = [10, -20, 30] }) => {
 
     return (
         <group ref={groupRef} position={position}>
-            <mesh ref={meshRef}>
+            <mesh ref={meshRef} renderOrder={10}>
                 <planeGeometry args={[dimensions.width, dimensions.height]} />
                 <meshBasicMaterial color="#ffffff"
                     transparent={true}
                     side={THREE.DoubleSide}
-                    depthWrite={false}
+                    depthWrite={true}
                 />
             </mesh>
         </group>

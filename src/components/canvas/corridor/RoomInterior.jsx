@@ -1,13 +1,13 @@
-import { useMemo, memo, Suspense, useEffect } from 'react';
+import { useMemo, memo, Suspense, useEffect, lazy } from 'react';
 import { Text } from '@react-three/drei';
 import { useTexture } from '@react-three/drei';
 import * as THREE from 'three';
 
-// Eagerly import room components - textures are preloaded during the preloader phase
-import GalleryRoom from '../rooms/Gallery/GalleryRoom';
-import StudioRoom from '../rooms/Studio/StudioRoom';
-import AboutRoom from '../rooms/About/AboutRoom';
-import ContactRoom from '../rooms/Contact/ContactRoom';
+// Each room is a separate chunk. It is downloaded only when its door opens.
+const GalleryRoom = lazy(() => import('../rooms/Gallery/GalleryRoom'));
+const StudioRoom = lazy(() => import('../rooms/Studio/StudioRoom'));
+const AboutRoom = lazy(() => import('../rooms/About/AboutRoom'));
+const ContactRoom = lazy(() => import('../rooms/Contact/ContactRoom'));
 
 // Room configurations
 const ROOM_CONFIG = {

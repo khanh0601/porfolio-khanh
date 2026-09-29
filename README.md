@@ -20,9 +20,9 @@ Welcome to the open-source repository of **Tomasz "ITom" Szmajda's** interactive
 This application is strictly optimized for cross-device operability, achieving zero lag spikes even on mobile processors through several bespoke architectural implementations:
 
 1. **Invisible Semantic SEO Fallback:** Bypasses WebGL canvas SEO limitations via strategic `sr-only-seo` indexing DOM injections, rendering fully visible semantic trees to native search-engine crawlers without mounting heavy bundles.
-2. **Asynchronous Shader Compilation:** Enforces `gl.compileAsync` during the Preloading phase inside a hidden `RoomWarmup` Suspense boundary. This allows Three.js to pre-compile complex materials asynchronously without blocking the main React update thread.
+2. **Progressive Scene Loading:** Loads only the entrance on the critical path, then streams the corridor, UI, analytics, and individual rooms in separate chunks when needed.
 3. **Baked Global Tinting & Lighing Extraction:** Replaced real-time WebGL shadow maps and infinite light rays with baked-in global textures (`apply_global_tint.js`), dropping the GPU compute overhead entirely while maintaining visual depth.
-4. **DOM Mutation Bypassing:** Critical animation properties (like SVG preloader states tracking 130+ concurrent HTTP texture requests) write directly to the `ref.current.style`, intentionally bypassing React’s `setState` render cycles to conserve CPU.
+4. **DOM Mutation Bypassing:** Critical SVG preloader animation properties write directly to `ref.current.style`, intentionally bypassing React render cycles to conserve CPU.
 5. **Adaptive Device Tiering:** Auto-detects `navigator.deviceMemory`, hardware concurrency, and viewport sizes to scale WebGL resolutions (`dpr`), antialiasing algorithms, and texture loading strictness on the fly.
 
 ---
@@ -36,13 +36,13 @@ graph TD;
     A --> D[2D DOM / SEO / HUD];
     
     C --> E[Experience.jsx];
-    E --> F[RoomWarmup Pre-compiler];
-    E --> G[Infinite Corridor Manager];
+    E --> F[Entrance - critical assets];
+    E --> G[Infinite Corridor - background load];
     
-    G --> H[Gallery Room];
-    G --> I[Studio Room];
-    G --> J[Contact Room];
-    G --> K[About Room];
+    G --> H[Gallery Room - lazy chunk];
+    G --> I[Studio Room - lazy chunk];
+    G --> J[Contact Room - lazy chunk];
+    G --> K[About Room - lazy chunk];
     
     H -.-> L{useTexture & useGLTF};
     L -.-> M(GPU Memory);

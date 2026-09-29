@@ -118,8 +118,8 @@ const CorridorSegment = ({
 
             {/* === WELCOME AREA (Start of segment) - MOVED CLOSER === */}
             <group position={[0, 0, zOffset - 2]}>
-                {/* ITOM Text - centered (ITOM letters adjusted internally) */}
-                <HeroText position={[0, -0.1, -0.5]} />
+                {/* ITOM/KHANH Text - lifted above head and shoulders */}
+                <HeroText position={[0, 0.68, -0.7]} />
 
                 {/* Avatar - center */}
                 <Avatar position={[0, -0.61, -0.3]} />

@@ -429,10 +429,10 @@ const AWARDS_DATA = {
         layout: 'certificate_grid',
         title: 'Backend Systems & Architecture',
         items: [
-            { label: 'Meetrip Core Engine', date: 'NestJS • Prisma • PostgreSQL • Docker', image: '/textures/about/FEATURED.webp', url: 'https://github.com' },
-            { label: 'High-Throughput Queues', date: 'Redis • BullMQ Worker Clusters', image: '/textures/about/FEATURED.webp', url: 'https://github.com' },
-            { label: 'Multi-Gateway Payments', date: 'PayOS • SePay VietQR • PayPal Sandbox/Live', image: '/textures/about/FEATURED.webp', url: 'https://github.com' },
-            { label: 'DevOps & Automated CI/CD', date: 'Multi-stage Docker • GitHub Actions • Nginx', image: '/textures/about/FEATURED.webp', url: 'https://github.com' },
+            { label: 'Meetrip Core Engine', date: 'NestJS • Prisma • PostgreSQL • Docker', image: null, url: 'https://github.com' },
+            { label: 'High-Throughput Queues', date: 'Redis • BullMQ Worker Clusters', image: null, url: 'https://github.com' },
+            { label: 'Multi-Gateway Payments', date: 'PayOS • SePay VietQR • PayPal Sandbox/Live', image: null, url: 'https://github.com' },
+            { label: 'DevOps & Automated CI/CD', date: 'Multi-stage Docker • GitHub Actions • Nginx', image: null, url: 'https://github.com' },
         ],
         platformConfig: {
             label: 'SYSTEMS',
@@ -445,10 +445,10 @@ const AWARDS_DATA = {
         layout: 'certificate_grid',
         title: 'Mentorship & Team Leadership',
         items: [
-            { label: 'From Zero to Hero', date: 'Mentoring Junior Devs From Scratch', image: '/textures/about/FEATURED.webp', url: 'https://github.com' },
-            { label: 'Sprint & Code Reviews', date: 'Cultivating Clean Architecture & High Standards', image: '/textures/about/FEATURED.webp', url: 'https://github.com' },
-            { label: 'Technical Workshops', date: 'Internal Tech Guides & System Design', image: '/textures/about/FEATURED.webp', url: 'https://github.com' },
-            { label: 'Culture of Empathy', date: 'Growing Together As One Strong Unit', image: '/textures/about/FEATURED.webp', url: 'https://github.com' },
+            { label: 'From Zero to Hero', date: 'Mentoring Junior Devs From Scratch', image: null, url: 'https://github.com' },
+            { label: 'Sprint & Code Reviews', date: 'Cultivating Clean Architecture & High Standards', image: null, url: 'https://github.com' },
+            { label: 'Technical Workshops', date: 'Internal Tech Guides & System Design', image: null, url: 'https://github.com' },
+            { label: 'Culture of Empathy', date: 'Growing Together As One Strong Unit', image: null, url: 'https://github.com' },
         ],
         platformConfig: {
             label: 'LEADERSHIP',
@@ -461,10 +461,10 @@ const AWARDS_DATA = {
         layout: 'certificate_grid',
         title: 'AI Automation & Product Tooling',
         items: [
-            { label: 'AI Productivity Agents', date: 'Custom CLI Tools & Workflow Automators', image: '/textures/about/FEATURED.webp', url: 'https://github.com' },
-            { label: 'Product-Minded Engineering', date: 'Frictionless User Journeys & Scalable APIs', image: '/textures/about/FEATURED.webp', url: 'https://github.com' },
-            { label: 'Creative 3D Experiences', date: 'Three.js • GSAP • Next.js 15 Web Apps', image: '/textures/about/FEATURED.webp', url: 'https://github.com' },
-            { label: 'Academic Foundation', date: 'HCMUTE Graduate GPA 8.1 / 10', image: '/textures/about/FEATURED.webp', url: 'https://github.com' },
+            { label: 'AI Productivity Agents', date: 'Custom CLI Tools & Workflow Automators', image: null, url: 'https://github.com' },
+            { label: 'Product-Minded Engineering', date: 'Frictionless User Journeys & Scalable APIs', image: null, url: 'https://github.com' },
+            { label: 'Creative 3D Experiences', date: 'Three.js • GSAP • Next.js 15 Web Apps', image: null, url: 'https://github.com' },
+            { label: 'Academic Foundation', date: 'HCMUTE Graduate GPA 8.1 / 10', image: null, url: 'https://github.com' },
         ],
         platformConfig: {
             label: 'INNOVATION',
@@ -477,10 +477,10 @@ const AWARDS_DATA = {
         layout: 'certificate_grid',
         title: 'Featured Projects Collection',
         items: [
-            { label: 'Meetrip Platform', date: '2024 - Present', image: '/textures/about/FEATURED.webp', url: 'https://github.com' },
-            { label: 'CaskXchange', date: '2024', image: '/textures/about/FEATURED.webp', url: 'https://github.com' },
-            { label: 'Timematch', date: '2023 - 2024', image: '/textures/about/FEATURED.webp', url: 'https://github.com' },
-            { label: 'Rotimatic', date: '2023', image: '/textures/about/FEATURED.webp', url: 'https://github.com' },
+            { label: 'Meetrip Platform', date: '2024 - Present', image: null, url: 'https://github.com' },
+            { label: 'CaskXchange', date: '2024', image: null, url: 'https://github.com' },
+            { label: 'Timematch', date: '2023 - 2024', image: null, url: 'https://github.com' },
+            { label: 'Rotimatic', date: '2023', image: null, url: 'https://github.com' },
         ],
         platformConfig: {
             label: 'PROJECTS',
@@ -493,10 +493,10 @@ const AWARDS_DATA = {
         layout: 'certificate_grid',
         title: 'Backend Systems & Architecture',
         items: [
-            { label: 'Meetrip Core Engine', date: 'NestJS • Prisma • PostgreSQL • Docker', image: '/textures/about/FEATURED.webp', url: 'https://github.com' },
-            { label: 'High-Throughput Queues', date: 'Redis • BullMQ Worker Clusters', image: '/textures/about/FEATURED.webp', url: 'https://github.com' },
-            { label: 'Multi-Gateway Payments', date: 'PayOS • SePay VietQR • PayPal Sandbox/Live', image: '/textures/about/FEATURED.webp', url: 'https://github.com' },
-            { label: 'DevOps & Automated CI/CD', date: 'Multi-stage Docker • GitHub Actions • Nginx', image: '/textures/about/FEATURED.webp', url: 'https://github.com' },
+            { label: 'Meetrip Core Engine', date: 'NestJS • Prisma • PostgreSQL • Docker', image: null, url: 'https://github.com' },
+            { label: 'High-Throughput Queues', date: 'Redis • BullMQ Worker Clusters', image: null, url: 'https://github.com' },
+            { label: 'Multi-Gateway Payments', date: 'PayOS • SePay VietQR • PayPal Sandbox/Live', image: null, url: 'https://github.com' },
+            { label: 'DevOps & Automated CI/CD', date: 'Multi-stage Docker • GitHub Actions • Nginx', image: null, url: 'https://github.com' },
         ],
         platformConfig: {
             label: 'SYSTEMS',
@@ -509,10 +509,10 @@ const AWARDS_DATA = {
         layout: 'certificate_grid',
         title: 'Mentorship & Team Leadership',
         items: [
-            { label: 'From Zero to Hero', date: 'Mentoring Junior Devs From Scratch', image: '/textures/about/FEATURED.webp', url: 'https://github.com' },
-            { label: 'Sprint & Code Reviews', date: 'Cultivating Clean Architecture & High Standards', image: '/textures/about/FEATURED.webp', url: 'https://github.com' },
-            { label: 'Technical Workshops', date: 'Internal Tech Guides & System Design', image: '/textures/about/FEATURED.webp', url: 'https://github.com' },
-            { label: 'Culture of Empathy', date: 'Growing Together As One Strong Unit', image: '/textures/about/FEATURED.webp', url: 'https://github.com' },
+            { label: 'From Zero to Hero', date: 'Mentoring Junior Devs From Scratch', image: null, url: 'https://github.com' },
+            { label: 'Sprint & Code Reviews', date: 'Cultivating Clean Architecture & High Standards', image: null, url: 'https://github.com' },
+            { label: 'Technical Workshops', date: 'Internal Tech Guides & System Design', image: null, url: 'https://github.com' },
+            { label: 'Culture of Empathy', date: 'Growing Together As One Strong Unit', image: null, url: 'https://github.com' },
         ],
         platformConfig: {
             label: 'LEADERSHIP',
@@ -525,10 +525,10 @@ const AWARDS_DATA = {
         layout: 'certificate_grid',
         title: 'AI Automation & Product Tooling',
         items: [
-            { label: 'AI Productivity Agents', date: 'Custom CLI Tools & Workflow Automators', image: '/textures/about/FEATURED.webp', url: 'https://github.com' },
-            { label: 'Product-Minded Engineering', date: 'Frictionless User Journeys & Scalable APIs', image: '/textures/about/FEATURED.webp', url: 'https://github.com' },
-            { label: 'Creative 3D Experiences', date: 'Three.js • GSAP • Next.js 15 Web Apps', image: '/textures/about/FEATURED.webp', url: 'https://github.com' },
-            { label: 'Academic Foundation', date: 'HCMUTE Graduate GPA 8.1 / 10', image: '/textures/about/FEATURED.webp', url: 'https://github.com' },
+            { label: 'AI Productivity Agents', date: 'Custom CLI Tools & Workflow Automators', image: null, url: 'https://github.com' },
+            { label: 'Product-Minded Engineering', date: 'Frictionless User Journeys & Scalable APIs', image: null, url: 'https://github.com' },
+            { label: 'Creative 3D Experiences', date: 'Three.js • GSAP • Next.js 15 Web Apps', image: null, url: 'https://github.com' },
+            { label: 'Academic Foundation', date: 'HCMUTE Graduate GPA 8.1 / 10', image: null, url: 'https://github.com' },
         ],
         platformConfig: {
             label: 'INNOVATION',

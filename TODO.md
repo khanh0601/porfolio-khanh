@@ -108,8 +108,8 @@
   - [X] **Contact:** Szum morza, splash przy rzucaniu butelki
   - [X] **UI:** Hover sounds, teleport swoosh
 - [X] Utworzyć folder `/public/sounds/`
-- [X] Dodać UI toggle (już istnieje `AudioControls.jsx`)
-- **Pliki:** [AudioManager.jsx](file:///c:/Users/tomsz/Desktop/portfolio/portfolio-itom/src/context/AudioManager.jsx), [AudioControls.jsx](file:///c:/Users/tomsz/Desktop/portfolio/portfolio-itom/src/components/ui/AudioControls.jsx)
+- [X] Dodać UI toggle (zintegrowany z `NavigationUI.jsx`)
+- **Pliki:** `AudioManager.jsx`, `NavigationUI.jsx`
 
 ### 9. Easter Eggs & detale
 - [ ] Konami code? Sekretny pokój?
@@ -157,7 +157,7 @@
 
 ### 13. Animacje i microinterakcje
 - [ ] Cursor customowy na hover nad elementami interaktywnymi (jest w `/public/cursors/`)
-- [ ] Parallax na tłach pokojów (hook `useMouseParallax.js` istnieje)
+- [ ] Parallax na tłach pokojów
 - [ ] Smooth page transitions — paper texture transitions (jest `PaperTransition.jsx`)
 - [ ] Dodać subtelne particle effects (pyłki w korytarzu? Świetliki w About?)
 
