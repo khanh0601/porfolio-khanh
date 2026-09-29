@@ -357,13 +357,13 @@ const IntroMilestone = ({ z, scrollProgressRef }) => {
             <Text
                 ref={brandRef}
                 position={[0, 4.4, 0.1]}
-                fontSize={0.42}
+                fontSize={0.40}
                 color="#4a4a4a"
                 anchorX="center"
                 anchorY="middle"
                 font="/fonts/CabinSketch-Bold.ttf"
             >
-                &lt; PRODUCT-MINDED ENGINEER &amp; FULL-STACK DEVELOPER /&gt;
+                &lt; PRODUCT ENGINEER • CREATIVE FRONT-END &amp; FULL-STACK /&gt;
             </Text>
 
             {/* Avatar on cloud - floating + spreads up-left */}
@@ -394,13 +394,13 @@ const IntroMilestone = ({ z, scrollProgressRef }) => {
             <Text
                 ref={motto2Ref}
                 position={[0, -0.4, 0.1]}
-                fontSize={0.30}
+                fontSize={0.29}
                 color="#3a3a3a"
                 anchorX="center"
                 anchorY="middle"
                 font="/fonts/CabinSketch-Regular.ttf"
             >
-                "Passionate about robust backend systems, intuitive UX &amp; empowering teams"
+                "Creative WebGL/Three.js • Custom WordPress/WooCommerce • Resilient NestJS Backends"
             </Text>
 
             {/* Motto - Line 3 (spreads right) */}
@@ -413,7 +413,7 @@ const IntroMilestone = ({ z, scrollProgressRef }) => {
                 anchorY="middle"
                 font="/fonts/CabinSketch-Regular.ttf"
             >
-                "⚽ Football Enthusiast • 🤖 AI Tooling Builder • 👥 Mentoring Junior Devs"
+                "⚽ Football Enthusiast • 🤖 AI Tooling Builder • 👥 Mentoring Junior Devs From Scratch"
             </Text>
         </group>
     );
@@ -423,116 +423,100 @@ const IntroMilestone = ({ z, scrollProgressRef }) => {
  * MOCK DATA FOR AWARDS
  */
 const AWARDS_DATA = {
-    systems: {
-        id: 'highlights-systems',
+    creative: {
+        id: 'highlights-creative',
         layout: 'certificate_grid',
-        title: 'Backend Systems & Architecture',
+        title: 'Front-end Creative & Modern Web',
         items: [
-            { label: 'Meetrip Core Engine', date: 'NestJS • Prisma • PostgreSQL • Docker', image: null, url: 'https://github.com' },
-            { label: 'High-Throughput Queues', date: 'Redis • BullMQ Worker Clusters', image: null, url: 'https://github.com' },
-            { label: 'Multi-Gateway Payments', date: 'PayOS • SePay VietQR • PayPal Sandbox/Live', image: null, url: 'https://github.com' },
-            { label: 'DevOps & Automated CI/CD', date: 'Multi-stage Docker • GitHub Actions • Nginx', image: null, url: 'https://github.com' },
+            { label: 'Rotimatic (Global E-Commerce)', date: 'Three.js 3D Interactive Models • GSAP • Lenis Smooth Scroll', image: null, url: 'https://rotimatic.com/' },
+            { label: 'CaskXchange (B2C Trading)', date: 'Next.js 15 • React 19 • Socket.IO Order Book • eKYC Webcam OCR', image: null, url: 'https://github.com' },
+            { label: 'Webflow Client Projects', date: 'GSAP ScrollTrigger • Lenis • Prismic Headless CMS (6+ Sites)', image: null, url: 'https://www.mission.plus/' },
+            { label: 'Creative WebGL & 3D Shaders', date: '3D Paper-Tear Interactions • Dynamic Canvas Animations', image: null, url: 'https://github.com' },
         ],
         platformConfig: {
-            label: 'SYSTEMS',
+            label: 'CREATIVE',
+            color: '#1a1a1a',
+            icon: '🎨'
+        }
+    },
+    wordpress: {
+        id: 'highlights-wordpress',
+        layout: 'certificate_grid',
+        title: 'WordPress Custom Architecture & Systems',
+        items: [
+            { label: 'Meetrip Travel Ecosystem', date: 'Custom Theme & Plugins • PayOS Webhook HMAC-SHA256 • eSIM Sync', image: null, url: 'https://meetrip.id.vn/' },
+            { label: 'Enterprise ERP / WMS on WordPress', date: 'Custom $wpdb EAV Schema • Sổ Cái Kép • PhpSpreadsheet Excel', image: null, url: 'https://github.com' },
+            { label: 'VUS & ASA Training Hub', date: 'Custom Themes • GraphQL API Integration • H5P Plugin Customization', image: null, url: 'https://github.com' },
+            { label: 'High-Performance Optimization', date: 'Script Deferring • Asset Tree-Shaking • Core Web Vitals 95+', image: null, url: 'https://github.com' },
+        ],
+        platformConfig: {
+            label: 'WORDPRESS',
             color: '#1a1a1a',
             icon: '⚡'
         }
     },
-    mentor: {
-        id: 'highlights-mentor',
+    leadership: {
+        id: 'highlights-leadership',
         layout: 'certificate_grid',
-        title: 'Mentorship & Team Leadership',
+        title: 'Team Lead & SaaS Engineering',
         items: [
-            { label: 'From Zero to Hero', date: 'Mentoring Junior Devs From Scratch', image: null, url: 'https://github.com' },
-            { label: 'Sprint & Code Reviews', date: 'Cultivating Clean Architecture & High Standards', image: null, url: 'https://github.com' },
-            { label: 'Technical Workshops', date: 'Internal Tech Guides & System Design', image: null, url: 'https://github.com' },
-            { label: 'Culture of Empathy', date: 'Growing Together As One Strong Unit', image: null, url: 'https://github.com' },
+            { label: 'Lead 3-Person Dev Team', date: 'Direct Client Communication • Sprint & Architectural Delivery', image: null, url: 'https://github.com' },
+            { label: 'Timematch SaaS Platform', date: '40+ Pages React SaaS • OAuth Google/MS/Zoom • 2-Way Calendar Sync', image: null, url: 'https://github.com' },
+            { label: 'Mentoring Junior Devs', date: 'Guiding Juniors From Scratch • Code Reviews & Clean Architecture', image: null, url: 'https://github.com' },
+            { label: 'AI Productivity Workflows', date: 'Custom CLI Agents • Automated Internal Development Tools', image: null, url: 'https://github.com' },
         ],
         platformConfig: {
             label: 'LEADERSHIP',
             color: '#1a1a1a',
             icon: '👥'
-        }
-    },
-    ai_tools: {
-        id: 'highlights-ai',
-        layout: 'certificate_grid',
-        title: 'AI Automation & Product Tooling',
-        items: [
-            { label: 'AI Productivity Agents', date: 'Custom CLI Tools & Workflow Automators', image: null, url: 'https://github.com' },
-            { label: 'Product-Minded Engineering', date: 'Frictionless User Journeys & Scalable APIs', image: null, url: 'https://github.com' },
-            { label: 'Creative 3D Experiences', date: 'Three.js • GSAP • Next.js 15 Web Apps', image: null, url: 'https://github.com' },
-            { label: 'Academic Foundation', date: 'HCMUTE Graduate GPA 8.1 / 10', image: null, url: 'https://github.com' },
-        ],
-        platformConfig: {
-            label: 'INNOVATION',
-            color: '#1a1a1a',
-            icon: '🤖'
-        }
-    },
-    featured: {
-        id: 'award-featured',
-        layout: 'certificate_grid',
-        title: 'Featured Projects Collection',
-        items: [
-            { label: 'Meetrip Platform', date: '2024 - Present', image: null, url: 'https://github.com' },
-            { label: 'CaskXchange', date: '2024', image: null, url: 'https://github.com' },
-            { label: 'Timematch', date: '2023 - 2024', image: null, url: 'https://github.com' },
-            { label: 'Rotimatic', date: '2023', image: null, url: 'https://github.com' },
-        ],
-        platformConfig: {
-            label: 'PROJECTS',
-            color: '#1a1a1a',
-            icon: '⭐'
         }
     },
     sotd: {
         id: 'award-sotd',
         layout: 'certificate_grid',
-        title: 'Backend Systems & Architecture',
+        title: 'Front-end Creative & Modern Web',
         items: [
-            { label: 'Meetrip Core Engine', date: 'NestJS • Prisma • PostgreSQL • Docker', image: null, url: 'https://github.com' },
-            { label: 'High-Throughput Queues', date: 'Redis • BullMQ Worker Clusters', image: null, url: 'https://github.com' },
-            { label: 'Multi-Gateway Payments', date: 'PayOS • SePay VietQR • PayPal Sandbox/Live', image: null, url: 'https://github.com' },
-            { label: 'DevOps & Automated CI/CD', date: 'Multi-stage Docker • GitHub Actions • Nginx', image: null, url: 'https://github.com' },
+            { label: 'Rotimatic (Global E-Commerce)', date: 'Three.js 3D Interactive Models • GSAP • Lenis Smooth Scroll', image: null, url: 'https://rotimatic.com/' },
+            { label: 'CaskXchange (B2C Trading)', date: 'Next.js 15 • React 19 • Socket.IO Order Book • eKYC Webcam OCR', image: null, url: 'https://github.com' },
+            { label: 'Webflow Client Projects', date: 'GSAP ScrollTrigger • Lenis • Prismic Headless CMS (6+ Sites)', image: null, url: 'https://www.mission.plus/' },
+            { label: 'Creative WebGL & 3D Shaders', date: '3D Paper-Tear Interactions • Dynamic Canvas Animations', image: null, url: 'https://github.com' },
         ],
         platformConfig: {
-            label: 'SYSTEMS',
+            label: 'CREATIVE',
             color: '#1a1a1a',
-            icon: '⚡'
+            icon: '🎨'
         }
     },
     sotm: {
         id: 'award-sotm',
         layout: 'certificate_grid',
-        title: 'Mentorship & Team Leadership',
+        title: 'WordPress Custom Architecture & Systems',
         items: [
-            { label: 'From Zero to Hero', date: 'Mentoring Junior Devs From Scratch', image: null, url: 'https://github.com' },
-            { label: 'Sprint & Code Reviews', date: 'Cultivating Clean Architecture & High Standards', image: null, url: 'https://github.com' },
-            { label: 'Technical Workshops', date: 'Internal Tech Guides & System Design', image: null, url: 'https://github.com' },
-            { label: 'Culture of Empathy', date: 'Growing Together As One Strong Unit', image: null, url: 'https://github.com' },
+            { label: 'Meetrip Travel Ecosystem', date: 'Custom Theme & Plugins • PayOS Webhook HMAC-SHA256 • eSIM Sync', image: null, url: 'https://meetrip.id.vn/' },
+            { label: 'Enterprise ERP / WMS on WordPress', date: 'Custom $wpdb EAV Schema • Sổ Cái Kép • PhpSpreadsheet Excel', image: null, url: 'https://github.com' },
+            { label: 'VUS & ASA Training Hub', date: 'Custom Themes • GraphQL API Integration • H5P Plugin Customization', image: null, url: 'https://github.com' },
+            { label: 'High-Performance Optimization', date: 'Script Deferring • Asset Tree-Shaking • Core Web Vitals 95+', image: null, url: 'https://github.com' },
         ],
         platformConfig: {
-            label: 'LEADERSHIP',
+            label: 'WORDPRESS',
             color: '#1a1a1a',
-            icon: '👥'
+            icon: '⚡'
         }
     },
     other: {
         id: 'award-other',
         layout: 'certificate_grid',
-        title: 'AI Automation & Product Tooling',
+        title: 'Team Lead & SaaS Engineering',
         items: [
-            { label: 'AI Productivity Agents', date: 'Custom CLI Tools & Workflow Automators', image: null, url: 'https://github.com' },
-            { label: 'Product-Minded Engineering', date: 'Frictionless User Journeys & Scalable APIs', image: null, url: 'https://github.com' },
-            { label: 'Creative 3D Experiences', date: 'Three.js • GSAP • Next.js 15 Web Apps', image: null, url: 'https://github.com' },
-            { label: 'Academic Foundation', date: 'HCMUTE Graduate GPA 8.1 / 10', image: null, url: 'https://github.com' },
+            { label: 'Lead 3-Person Dev Team', date: 'Direct Client Communication • Sprint & Architectural Delivery', image: null, url: 'https://github.com' },
+            { label: 'Timematch SaaS Platform', date: '40+ Pages React SaaS • OAuth Google/MS/Zoom • 2-Way Calendar Sync', image: null, url: 'https://github.com' },
+            { label: 'Mentoring Junior Devs', date: 'Guiding Juniors From Scratch • Code Reviews & Clean Architecture', image: null, url: 'https://github.com' },
+            { label: 'AI Productivity Workflows', date: 'Custom CLI Agents • Automated Internal Development Tools', image: null, url: 'https://github.com' },
         ],
         platformConfig: {
-            label: 'INNOVATION',
+            label: 'LEADERSHIP',
             color: '#1a1a1a',
-            icon: '🤖'
+            icon: '👥'
         }
     }
 };
@@ -702,10 +686,10 @@ const AwardsMilestone = ({ z, scrollProgressRef }) => {
                 anchorY="middle"
                 font="/fonts/CabinSketch-Bold.ttf"
             >
-                Backend Architecture • Team Mentorship • AI Tooling
+                Front-end Creative • WordPress Architecture • Team Leadership
             </Text>
 
-            {/* === SYSTEMS (Card 1: left) === */}
+            {/* === CREATIVE DEV (Card 1: left) === */}
             <group ref={sotdRef} position={[0, 0.5, -0.5]}>
                 {/* Painted card (behind) - hidden until button hover */}
                 <mesh ref={sotdCardPaintedRef} position={[0, 0, -0.001]} visible={true}>
@@ -733,7 +717,7 @@ const AwardsMilestone = ({ z, scrollProgressRef }) => {
                 <AwardButton
                     onClick={(e) => {
                         e.stopPropagation();
-                        openOverlay(awardsData.systems || awardsData.sotd);
+                        openOverlay(awardsData.creative || awardsData.sotd);
                     }}
                     texture={buttonTexture}
                     paintedTexture={buttonPaintedTexture}
@@ -745,13 +729,13 @@ const AwardsMilestone = ({ z, scrollProgressRef }) => {
                 {/* AWARD LABEL */}
                 <Text
                     position={[0, 0.95, 0.01]}
-                    fontSize={0.42}
+                    fontSize={0.38}
                     color="#1a1a1a"
                     anchorX="center"
                     anchorY="middle"
                     font="/fonts/CabinSketch-Bold.ttf"
                 >
-                    SYSTEMS
+                    CREATIVE DEV
                 </Text>
                 {/* AWARD COUNT */}
                 <Text
@@ -762,11 +746,11 @@ const AwardsMilestone = ({ z, scrollProgressRef }) => {
                     anchorY="middle"
                     font="/fonts/CabinSketch-Bold.ttf"
                 >
-                    8+
+                    20+
                 </Text>
             </group>
 
-            {/* === MENTOR (Card 2: right) === */}
+            {/* === WORDPRESS (Card 2: right) === */}
             <group ref={sotmRef} position={[0, 0.5, -0.2]}>
                 {/* Painted card (behind) - hidden until button hover */}
                 <mesh ref={sotmCardPaintedRef} position={[0, 0, -0.001]} visible={true}>
@@ -794,7 +778,7 @@ const AwardsMilestone = ({ z, scrollProgressRef }) => {
                 <AwardButton
                     onClick={(e) => {
                         e.stopPropagation();
-                        openOverlay(awardsData.mentor || awardsData.sotm);
+                        openOverlay(awardsData.wordpress || awardsData.sotm);
                     }}
                     texture={buttonTexture}
                     paintedTexture={buttonPaintedTexture}
@@ -806,13 +790,13 @@ const AwardsMilestone = ({ z, scrollProgressRef }) => {
                 {/* AWARD LABEL */}
                 <Text
                     position={[0, 0.95, 0.01]}
-                    fontSize={0.42}
+                    fontSize={0.38}
                     color="#1a1a1a"
                     anchorX="center"
                     anchorY="middle"
                     font="/fonts/CabinSketch-Bold.ttf"
                 >
-                    MENTOR
+                    WORDPRESS
                 </Text>
                 {/* AWARD COUNT */}
                 <Text
@@ -827,7 +811,7 @@ const AwardsMilestone = ({ z, scrollProgressRef }) => {
                 </Text>
             </group>
 
-            {/* === AI TOOLS (Card 3: center) === */}
+            {/* === LEAD & SAAS (Card 3: center) === */}
             <group ref={sotyRef} position={[0, 0.5, 0]}>
                 {/* Painted card (behind) - hidden until button hover */}
                 <mesh ref={sotyCardPaintedRef} position={[0, 0, -0.001]} visible={true}>
@@ -854,7 +838,7 @@ const AwardsMilestone = ({ z, scrollProgressRef }) => {
                 <AwardButton
                     onClick={(e) => {
                         e.stopPropagation();
-                        openOverlay(awardsData.ai_tools || awardsData.other);
+                        openOverlay(awardsData.leadership || awardsData.other);
                     }}
                     texture={buttonTexture}
                     paintedTexture={buttonPaintedTexture}
@@ -866,24 +850,24 @@ const AwardsMilestone = ({ z, scrollProgressRef }) => {
                 {/* AWARD LABEL */}
                 <Text
                     position={[0, 0.95, 0.01]}
-                    fontSize={0.40}
+                    fontSize={0.36}
                     color="#1a1a1a"
                     anchorX="center"
                     anchorY="middle"
                     font="/fonts/CabinSketch-Bold.ttf"
                 >
-                    AI TOOLS
+                    LEAD &amp; SAAS
                 </Text>
                 {/* AWARD COUNT */}
                 <Text
                     position={[-0.05, 0, 0.01]}
-                    fontSize={0.8}
+                    fontSize={0.75}
                     color="#1a1a1a"
                     anchorX="center"
                     anchorY="middle"
                     font="/fonts/CabinSketch-Bold.ttf"
                 >
-                    10+
+                    3 Devs
                 </Text>
             </group>
         </group>
@@ -946,27 +930,25 @@ const JourneyMilestone = ({ z, scrollProgressRef }) => {
             revealFactor = 1;
         }
 
-        // Floating animation (bobbing)
-        // UO Island (Left)
+        // Floating animation (bobbing) - placed safely below the top story card
+        // UO Island (Left - Education)
         if (uoRef.current) {
-            // === EDYTUJ POZYCJE TUTAJ (UO) ===
-            const startY = -2;
-            const endY = 1.5;
+            const startY = -3.5;
+            const endY = -0.3;
 
             const currentBaseY = startY + revealFactor * (endY - startY);
-            uoRef.current.position.y = currentBaseY + Math.sin(time * 0.5) * 0.2;
-            uoRef.current.rotation.z = Math.sin(time * 0.3) * 0.05;
+            uoRef.current.position.y = currentBaseY + Math.sin(time * 0.5) * 0.15;
+            uoRef.current.rotation.z = Math.sin(time * 0.3) * 0.04;
         }
 
-        // Freelance Island (Right)
+        // Freelance Island (Right - Career & Leadership)
         if (freelanceRef.current) {
-            // === EDYTUJ POZYCJE TUTAJ (Freelance) ===
-            const startY = -1;
-            const endY = 2.5;
+            const startY = -3.0;
+            const endY = 0.2;
 
             const currentBaseY = startY + revealFactor * (endY - startY);
-            freelanceRef.current.position.y = currentBaseY + Math.sin(time * 0.4 + 2) * 0.25;
-            freelanceRef.current.rotation.z = Math.sin(time * 0.2 + 1) * -0.05;
+            freelanceRef.current.position.y = currentBaseY + Math.sin(time * 0.4 + 2) * 0.18;
+            freelanceRef.current.rotation.z = Math.sin(time * 0.2 + 1) * -0.04;
         }
     });
 
@@ -974,8 +956,8 @@ const JourneyMilestone = ({ z, scrollProgressRef }) => {
         <group ref={groupRef} position={[0, 0, z]}>
             {/* Title */}
             <Text
-                position={[0, 5.2, 0.3]}
-                fontSize={1.2}
+                position={[0, 5.5, 0.3]}
+                fontSize={1.15}
                 color="#1a1a1a"
                 anchorX="center"
                 anchorY="middle"
@@ -986,56 +968,63 @@ const JourneyMilestone = ({ z, scrollProgressRef }) => {
 
             {/* Subtitle */}
             <Text
-                position={[0, 4.4, 0.3]}
-                fontSize={0.36}
+                position={[0, 4.75, 0.3]}
+                fontSize={0.34}
                 color="#444444"
                 anchorX="center"
                 anchorY="middle"
                 font="/fonts/CabinSketch-Bold.ttf"
             >
-                From Nghe An to Saigon • A Journey of Grit, Passion &amp; Leadership
+                From Nghe An to Saigon • A Story of Growth, Engineering &amp; Leadership
             </Text>
 
-            {/* Center Personal Story Card */}
-            <group position={[0, 2.2, 0.2]}>
+            {/* Top Personal Story Card - Placed high to never overlap floating islands */}
+            <group position={[0, 3.45, 0.2]}>
+                {/* Paper card backdrop */}
                 <mesh position={[0, 0, -0.01]}>
-                    <planeGeometry args={[11.5, 1.8]} />
-                    <meshBasicMaterial color="#ffffff" transparent opacity={0.92} side={THREE.DoubleSide} />
+                    <planeGeometry args={[11.2, 1.4]} />
+                    <meshBasicMaterial color="#ffffff" transparent opacity={0.96} side={THREE.DoubleSide} />
                 </mesh>
+                {/* Hand-drawn sketch border */}
+                <mesh position={[0, 0, -0.012]} scale={[1.015, 1.05, 1]}>
+                    <planeGeometry args={[11.2, 1.4]} />
+                    <meshBasicMaterial color="#222222" transparent opacity={0.8} side={THREE.DoubleSide} />
+                </mesh>
+
                 <Text
-                    position={[0, 0.45, 0.05]}
+                    position={[0, 0.35, 0.05]}
                     fontSize={0.27}
-                    color="#1a1a1a"
+                    color="#111111"
                     anchorX="center"
                     anchorY="middle"
                     font="/fonts/CabinSketch-Bold.ttf"
                 >
-                    "Born in 2002 in Nghe An, moved to Saigon in 2020 to study IT at HCMUTE (GPA 8.1/10)."
+                    "Sinh năm 2002 tại Nghệ An, năm 2020 vào TP.HCM theo học CNTT tại ĐH Sư Phạm Kỹ Thuật (GPA 8.1 / 10)"
                 </Text>
                 <Text
-                    position={[0, 0, 0.05]}
+                    position={[0, 0.0, 0.05]}
                     fontSize={0.25}
-                    color="#333333"
+                    color="#222222"
                     anchorX="center"
                     anchorY="middle"
-                    font="/fonts/CabinSketch-Regular.ttf"
+                    font="/fonts/CabinSketch-Bold.ttf"
                 >
-                    "Deeply passionate about coding, mentoring junior teammates from scratch &amp; leveling up together."
+                    "Front-end Creative (Three.js • GSAP) • WordPress chuyên sâu • Kiến trúc sản phẩm thực tế"
                 </Text>
                 <Text
-                    position={[0, -0.45, 0.05]}
-                    fontSize={0.25}
+                    position={[0, -0.35, 0.05]}
+                    fontSize={0.24}
                     color="#444444"
                     anchorX="center"
                     anchorY="middle"
                     font="/fonts/CabinSketch-Regular.ttf"
                 >
-                    "⚽ Passionate football player on the pitch • 🤖 Custom AI workflow tool builder."
+                    "Dẫn dắt team 3 dev, nhiệt huyết mentor các bạn trẻ từ con số 0 • Đam mê bóng đá ⚽ &amp; Tool AI 🤖"
                 </Text>
             </group>
 
             {/* === UO ISLAND (Left) - Education === */}
-            <group ref={uoRef} position={[-3.6, -1, 0]}>
+            <group ref={uoRef} position={[-4.2, -0.3, 0]}>
                 <mesh>
                     <planeGeometry args={[islandHeight * uoAspect, islandHeight]} />
                     <meshBasicMaterial color="#ffffff"
@@ -1044,40 +1033,53 @@ const JourneyMilestone = ({ z, scrollProgressRef }) => {
                         side={THREE.DoubleSide}
                     />
                 </mesh>
-                <Text
-                    position={[0.1, -0.55, 0.1]}
-                    fontSize={0.38}
-                    color="#1a1a1a"
-                    anchorX="center"
-                    anchorY="middle"
-                    font="/fonts/CabinSketch-Bold.ttf"
-                >
-                    HCMUTE (ĐH SPKT)
-                </Text>
-                <Text
-                    position={[0.1, -0.95, 0.1]}
-                    fontSize={0.27}
-                    color="#222222"
-                    anchorX="center"
-                    anchorY="middle"
-                    font="/fonts/CabinSketch-Bold.ttf"
-                >
-                    IT Major • GPA 8.1 / 10
-                </Text>
-                <Text
-                    position={[0.1, -1.35, 0.1]}
-                    fontSize={0.22}
-                    color="#555555"
-                    anchorX="center"
-                    anchorY="middle"
-                    font="/fonts/CabinSketch-Regular.ttf"
-                >
-                    Saigon (2020 - 2025)
-                </Text>
+
+                {/* Clean White Paper Plaque for High-Contrast Readability */}
+                <group position={[0.1, -1.0, 0.05]}>
+                    <mesh position={[0, 0, -0.01]}>
+                        <planeGeometry args={[3.8, 1.3]} />
+                        <meshBasicMaterial color="#ffffff" transparent opacity={0.96} side={THREE.DoubleSide} />
+                    </mesh>
+                    <mesh position={[0, 0, -0.012]} scale={[1.03, 1.08, 1]}>
+                        <planeGeometry args={[3.8, 1.3]} />
+                        <meshBasicMaterial color="#222222" transparent opacity={0.7} side={THREE.DoubleSide} />
+                    </mesh>
+
+                    <Text
+                        position={[0, 0.35, 0.05]}
+                        fontSize={0.27}
+                        color="#111111"
+                        anchorX="center"
+                        anchorY="middle"
+                        font="/fonts/CabinSketch-Bold.ttf"
+                    >
+                        HCMUTE (ĐH SPKT TP.HCM)
+                    </Text>
+                    <Text
+                        position={[0, 0.0, 0.05]}
+                        fontSize={0.23}
+                        color="#2f8175"
+                        anchorX="center"
+                        anchorY="middle"
+                        font="/fonts/CabinSketch-Bold.ttf"
+                    >
+                        Chuyên Ngành CNTT • GPA 8.1 / 10
+                    </Text>
+                    <Text
+                        position={[0, -0.35, 0.05]}
+                        fontSize={0.20}
+                        color="#555555"
+                        anchorX="center"
+                        anchorY="middle"
+                        font="/fonts/CabinSketch-Regular.ttf"
+                    >
+                        Khóa 2020 – 2025 • TP. Hồ Chí Minh
+                    </Text>
+                </group>
             </group>
 
-            {/* === FREELANCE ISLAND (Right) - Team Leadership & Mentoring === */}
-            <group ref={freelanceRef} position={[3.6, -2, 0.5]}>
+            {/* === FREELANCE ISLAND (Right) - Career & Team Leadership === */}
+            <group ref={freelanceRef} position={[4.2, 0.2, 0.3]}>
                 <mesh>
                     <planeGeometry args={[islandHeight * freelanceAspect, islandHeight]} />
                     <meshBasicMaterial color="#ffffff"
@@ -1086,36 +1088,49 @@ const JourneyMilestone = ({ z, scrollProgressRef }) => {
                         side={THREE.DoubleSide}
                     />
                 </mesh>
-                <Text
-                    position={[0, -0.45, 0.1]}
-                    fontSize={0.38}
-                    color="#1a1a1a"
-                    anchorX="center"
-                    anchorY="middle"
-                    font="/fonts/CabinSketch-Bold.ttf"
-                >
-                    TECH LEAD &amp; MENTOR
-                </Text>
-                <Text
-                    position={[0, -0.85, 0.1]}
-                    fontSize={0.27}
-                    color="#222222"
-                    anchorX="center"
-                    anchorY="middle"
-                    font="/fonts/CabinSketch-Bold.ttf"
-                >
-                    Guiding Juniors From Zero
-                </Text>
-                <Text
-                    position={[0, -1.25, 0.1]}
-                    fontSize={0.22}
-                    color="#555555"
-                    anchorX="center"
-                    anchorY="middle"
-                    font="/fonts/CabinSketch-Regular.ttf"
-                >
-                    High-Energy Growth Culture
-                </Text>
+
+                {/* Clean White Paper Plaque for High-Contrast Readability */}
+                <group position={[0, -0.9, 0.05]}>
+                    <mesh position={[0, 0, -0.01]}>
+                        <planeGeometry args={[4.1, 1.3]} />
+                        <meshBasicMaterial color="#ffffff" transparent opacity={0.96} side={THREE.DoubleSide} />
+                    </mesh>
+                    <mesh position={[0, 0, -0.012]} scale={[1.03, 1.08, 1]}>
+                        <planeGeometry args={[4.1, 1.3]} />
+                        <meshBasicMaterial color="#222222" transparent opacity={0.7} side={THREE.DoubleSide} />
+                    </mesh>
+
+                    <Text
+                        position={[0, 0.35, 0.05]}
+                        fontSize={0.27}
+                        color="#111111"
+                        anchorX="center"
+                        anchorY="middle"
+                        font="/fonts/CabinSketch-Bold.ttf"
+                    >
+                        TECH LEAD &amp; MENTOR
+                    </Text>
+                    <Text
+                        position={[0, 0.0, 0.05]}
+                        fontSize={0.22}
+                        color="#e06d53"
+                        anchorX="center"
+                        anchorY="middle"
+                        font="/fonts/CabinSketch-Bold.ttf"
+                    >
+                        Bear Plus • Lead Team 3 Devs
+                    </Text>
+                    <Text
+                        position={[0, -0.35, 0.05]}
+                        fontSize={0.20}
+                        color="#555555"
+                        anchorX="center"
+                        anchorY="middle"
+                        font="/fonts/CabinSketch-Regular.ttf"
+                    >
+                        Đào tạo đàn em từ con số 0 lên dự án
+                    </Text>
+                </group>
             </group>
         </group>
     );
@@ -1130,20 +1145,20 @@ const JourneyMilestone = ({ z, scrollProgressRef }) => {
 // === EDYTUJ WYSOKOŚĆ TUTAJ (zmień wartość 'y' dla każdego balona) ===
 const BALLOON_CONFIG = [
     // Large balloons (main skills) - front and center
-    { texture: '/textures/about/GSAPduzybalon.webp', paintedTexture: '/textures/about/GSAPduzybalon_painted.webp', label: 'NestJS / TypeScript', size: 'large', x: 0, y: 3.2, z: 0.5, phase: 3 },
-    { texture: '/textures/about/reactduzybalon.webp', paintedTexture: '/textures/about/reactduzybalon_painted.webp', label: 'Docker & CI/CD', size: 'large', x: -2.8, y: 2, z: 0.3, phase: 0 },
-    { texture: '/textures/about/threejsduzybalon.webp', paintedTexture: '/textures/about/threejsduzybalon_painted.webp', label: 'React / Next.js 15', size: 'large', x: 2.8, y: 2.5, z: 0.2, phase: 1.5 },
+    { texture: '/textures/about/threejsduzybalon.webp', paintedTexture: '/textures/about/threejsduzybalon_painted.webp', label: 'Three.js & Creative Dev', size: 'large', x: 0, y: 3.2, z: 0.5, phase: 3 },
+    { texture: '/textures/about/reactduzybalon.webp', paintedTexture: '/textures/about/reactduzybalon_painted.webp', label: 'React & Next.js 15', size: 'large', x: -2.8, y: 2, z: 0.3, phase: 0 },
+    { texture: '/textures/about/GSAPduzybalon.webp', paintedTexture: '/textures/about/GSAPduzybalon_painted.webp', label: 'WordPress & WooCommerce', size: 'large', x: 2.8, y: 2.5, z: 0.2, phase: 1.5 },
 
     // Medium balloons - scattered around
-    { texture: '/textures/about/JSSREDNIBALON.webp', paintedTexture: '/textures/about/JSSREDNIBALON_painted.webp', label: 'Redis & BullMQ', size: 'medium', x: -4.2, y: 1.2, z: -0.3, phase: 0.8 },
-    { texture: '/textures/about/nextjssrednibalon.webp', paintedTexture: '/textures/about/nextjssrednibalon_painted.webp', label: 'PostgreSQL & Prisma', size: 'medium', x: 4.2, y: 1.5, z: -0.2, phase: 2.2 },
-    { texture: '/textures/about/csssrednibalon.webp', paintedTexture: '/textures/about/csssrednibalon_painted.webp', label: 'Three.js & GSAP', size: 'medium', x: 0, y: 0.7, z: -0.4, phase: 4 },
+    { texture: '/textures/about/JSSREDNIBALON.webp', paintedTexture: '/textures/about/JSSREDNIBALON_painted.webp', label: 'NestJS & TypeScript', size: 'medium', x: -4.2, y: 1.2, z: -0.3, phase: 0.8 },
+    { texture: '/textures/about/nextjssrednibalon.webp', paintedTexture: '/textures/about/nextjssrednibalon_painted.webp', label: 'ACF Pro & Headless WP', size: 'medium', x: 4.2, y: 1.5, z: -0.2, phase: 2.2 },
+    { texture: '/textures/about/csssrednibalon.webp', paintedTexture: '/textures/about/csssrednibalon_painted.webp', label: 'GSAP & Micro-Interactions', size: 'medium', x: 0, y: 0.7, z: -0.4, phase: 4 },
 
     // Small balloons - background accents
-    { texture: '/textures/about/htmlmalybalon.webp', paintedTexture: '/textures/about/htmlmalybalon_painted.webp', label: 'AI Automation Tools', size: 'small', x: -5.5, y: 2.5, z: -0.8, phase: 1.2 },
-    { texture: '/textures/about/gitmalybalon.webp', paintedTexture: '/textures/about/gitmalybalon_painted.webp', label: 'Git & Team Lead', size: 'small', x: 5.5, y: 3, z: -0.7, phase: 2.8 },
-    { texture: '/textures/about/firebasemalybalon.webp', paintedTexture: '/textures/about/firebasemalybalon_painted.webp', label: 'Socket.IO Realtime', size: 'small', x: -3.2, y: 4.6, z: -0.5, phase: 3.5 },
-    { texture: '/textures/about/figmamalybalon.webp', paintedTexture: '/textures/about/figmamalybalon_painted.webp', label: 'Product & UI/UX', size: 'small', x: 3.2, y: 4.2, z: -0.6, phase: 4.5 },
+    { texture: '/textures/about/htmlmalybalon.webp', paintedTexture: '/textures/about/htmlmalybalon_painted.webp', label: 'Docker & CI/CD', size: 'small', x: -5.5, y: 2.5, z: -0.8, phase: 1.2 },
+    { texture: '/textures/about/gitmalybalon.webp', paintedTexture: '/textures/about/gitmalybalon_painted.webp', label: 'Redis & BullMQ', size: 'small', x: 5.5, y: 3, z: -0.7, phase: 2.8 },
+    { texture: '/textures/about/firebasemalybalon.webp', paintedTexture: '/textures/about/firebasemalybalon_painted.webp', label: 'PostgreSQL & Prisma', size: 'small', x: -3.2, y: 4.6, z: -0.5, phase: 3.5 },
+    { texture: '/textures/about/figmamalybalon.webp', paintedTexture: '/textures/about/figmamalybalon_painted.webp', label: 'Product UX & AI Tools', size: 'small', x: 3.2, y: 4.2, z: -0.6, phase: 4.5 },
 ];
 
 // Size multipliers for balloon categories
@@ -1598,16 +1613,16 @@ const SkillsMilestone = ({ z, scrollProgressRef }) => {
             ))}
 
             {/* === FULL-STACK TECHNICAL ARSENAL SHOWCASE BOARD === */}
-            <group position={[0, -2.6, 0]}>
+            <group position={[0, -2.8, 0]}>
                 {/* Paper backdrop */}
                 <mesh position={[0, 0, -0.02]}>
-                    <planeGeometry args={[13.6, 3.4]} />
+                    <planeGeometry args={[13.8, 3.9]} />
                     <meshBasicMaterial color="#ffffff" transparent opacity={0.94} side={THREE.DoubleSide} />
                 </mesh>
 
                 <Text
-                    position={[0, 1.25, 0.02]}
-                    fontSize={0.4}
+                    position={[0, 1.48, 0.02]}
+                    fontSize={0.38}
                     color="#1a1a1a"
                     anchorX="center"
                     anchorY="middle"
@@ -1616,10 +1631,54 @@ const SkillsMilestone = ({ z, scrollProgressRef }) => {
                     ★ FULL-STACK TECHNICAL ARSENAL &amp; TOOLKIT ★
                 </Text>
 
-                {/* Row 1: Backend & Distributed Systems */}
+                {/* Row 1: Frontend & Creative 3D */}
                 <Text
-                    position={[-6.3, 0.75, 0.02]}
-                    fontSize={0.24}
+                    position={[-6.4, 0.95, 0.02]}
+                    fontSize={0.23}
+                    color="#111111"
+                    anchorX="left"
+                    anchorY="middle"
+                    font="/fonts/CabinSketch-Bold.ttf"
+                >
+                    CREATIVE FRONTEND:
+                </Text>
+                <Text
+                    position={[-2.6, 0.95, 0.02]}
+                    fontSize={0.21}
+                    color="#333333"
+                    anchorX="left"
+                    anchorY="middle"
+                    font="/fonts/CabinSketch-Regular.ttf"
+                >
+                    Next.js 15 • React 19 • Three.js • React Three Fiber • GSAP ScrollTrigger • Canvas 2D/3D • Custom Shaders • Tailwind CSS
+                </Text>
+
+                {/* Row 2: WordPress & CMS Solutions */}
+                <Text
+                    position={[-6.4, 0.45, 0.02]}
+                    fontSize={0.23}
+                    color="#111111"
+                    anchorX="left"
+                    anchorY="middle"
+                    font="/fonts/CabinSketch-Bold.ttf"
+                >
+                    WORDPRESS &amp; CMS:
+                </Text>
+                <Text
+                    position={[-2.6, 0.45, 0.02]}
+                    fontSize={0.21}
+                    color="#333333"
+                    anchorX="left"
+                    anchorY="middle"
+                    font="/fonts/CabinSketch-Regular.ttf"
+                >
+                    WordPress Custom Themes • ACF Pro • WooCommerce • Headless WP (GraphQL / REST API) • Elementor • PageSpeed 95+
+                </Text>
+
+                {/* Row 3: Backend & Cloud */}
+                <Text
+                    position={[-6.4, -0.05, 0.02]}
+                    fontSize={0.23}
                     color="#111111"
                     anchorX="left"
                     anchorY="middle"
@@ -1628,20 +1687,20 @@ const SkillsMilestone = ({ z, scrollProgressRef }) => {
                     BACKEND &amp; CLOUD:
                 </Text>
                 <Text
-                    position={[-2.8, 0.75, 0.02]}
-                    fontSize={0.22}
+                    position={[-2.6, -0.05, 0.02]}
+                    fontSize={0.21}
                     color="#333333"
                     anchorX="left"
                     anchorY="middle"
                     font="/fonts/CabinSketch-Regular.ttf"
                 >
-                    NestJS • TypeScript • Node.js • Express • PostgreSQL • MongoDB • Prisma ORM • Redis • BullMQ
+                    NestJS • TypeScript • Node.js • PostgreSQL • Redis • BullMQ Worker Queues • Prisma ORM • Socket.IO
                 </Text>
 
-                {/* Row 2: DevOps & Payments */}
+                {/* Row 4: DevOps & Payments */}
                 <Text
-                    position={[-6.3, 0.25, 0.02]}
-                    fontSize={0.24}
+                    position={[-6.4, -0.55, 0.02]}
+                    fontSize={0.23}
                     color="#111111"
                     anchorX="left"
                     anchorY="middle"
@@ -1650,8 +1709,8 @@ const SkillsMilestone = ({ z, scrollProgressRef }) => {
                     DEVOPS &amp; PAYMENTS:
                 </Text>
                 <Text
-                    position={[-2.8, 0.25, 0.02]}
-                    fontSize={0.22}
+                    position={[-2.6, -0.55, 0.02]}
+                    fontSize={0.21}
                     color="#333333"
                     anchorX="left"
                     anchorY="middle"
@@ -1660,32 +1719,10 @@ const SkillsMilestone = ({ z, scrollProgressRef }) => {
                     Docker • Docker Compose • GitHub Actions CI/CD • Nginx • Linux/VPS • PayOS • SePay VietQR • PayPal
                 </Text>
 
-                {/* Row 3: Frontend & Creative 3D */}
+                {/* Row 5: AI & Leadership */}
                 <Text
-                    position={[-6.3, -0.25, 0.02]}
-                    fontSize={0.24}
-                    color="#111111"
-                    anchorX="left"
-                    anchorY="middle"
-                    font="/fonts/CabinSketch-Bold.ttf"
-                >
-                    FRONTEND &amp; 3D:
-                </Text>
-                <Text
-                    position={[-2.8, -0.25, 0.02]}
-                    fontSize={0.22}
-                    color="#333333"
-                    anchorX="left"
-                    anchorY="middle"
-                    font="/fonts/CabinSketch-Regular.ttf"
-                >
-                    Next.js 15 • React 19 • Three.js • React Three Fiber • GSAP • Tailwind CSS • Webflow • WebSockets
-                </Text>
-
-                {/* Row 4: AI & Leadership */}
-                <Text
-                    position={[-6.3, -0.75, 0.02]}
-                    fontSize={0.24}
+                    position={[-6.4, -1.05, 0.02]}
+                    fontSize={0.23}
                     color="#111111"
                     anchorX="left"
                     anchorY="middle"
@@ -1694,14 +1731,14 @@ const SkillsMilestone = ({ z, scrollProgressRef }) => {
                     AI &amp; LEADERSHIP:
                 </Text>
                 <Text
-                    position={[-2.8, -0.75, 0.02]}
-                    fontSize={0.22}
+                    position={[-2.6, -1.05, 0.02]}
+                    fontSize={0.21}
                     color="#333333"
                     anchorX="left"
                     anchorY="middle"
                     font="/fonts/CabinSketch-Regular.ttf"
                 >
-                    AI Automation Tooling • LLM Workflows • Mentoring Junior Devs • Agile Leadership • Football ⚽
+                    AI Automation Tooling • LLM Workflows • Mentoring Junior Devs • Product UX Flow Optimization • Football ⚽
                 </Text>
             </group>
         </group>

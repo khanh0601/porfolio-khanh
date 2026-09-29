@@ -63,12 +63,12 @@ const HeroText = ({ position = [0, 0.3, 0] }) => {
         { char: 'H', baseX: 1.35, splitDir: 1.8, delay: 0 },
     ], []);
 
-    // Tagline words for split effect - placed near the floor below feet
+    // Tagline words for split effect - placed nicely to the left and right of feet
     const taglineWords = useMemo(() => [
-        { text: '<', baseX: -0.95, splitDir: -1.6, delay: 0 },
-        { text: 'product', baseX: -0.42, splitDir: -0.9, delay: 0 },
-        { text: 'engineer', baseX: 0.42, splitDir: 0.9, delay: 0 },
-        { text: '/>', baseX: 0.95, splitDir: 1.6, delay: 0 },
+        { text: '<', baseX: -1.35, splitDir: -1.6, delay: 0 },
+        { text: 'product', baseX: -0.82, splitDir: -1.0, delay: 0 },
+        { text: 'engineer', baseX: 0.82, splitDir: 1.0, delay: 0 },
+        { text: '/>', baseX: 1.35, splitDir: 1.6, delay: 0 },
     ], []);
 
     // Animation loop

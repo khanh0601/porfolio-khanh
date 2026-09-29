@@ -1,81 +1,81 @@
 /**
- * Static experience and skills shown on the Studio monitor tower.
- * Keep this content aligned with Trần Quang Khánh's verified portfolio data.
+ * Content data shown on the CRT monitor tower in The Lab / Studio.
+ * Derived directly from Trần Quang Khánh's verified engineering portfolio and commercial projects.
  */
 
 export const PLATFORM_CONFIG = {
-    backend: {
+    creative: {
+        color: '#e06d53',
+        accentColor: '#b34d36',
+        icon: '🎨',
+        label: 'Creative Tech',
+        shape: 'monitor',
+    },
+    wordpress: {
+        color: '#2f8175',
+        accentColor: '#1d574e',
+        icon: '⚡',
+        label: 'WordPress Core',
+        shape: 'tv',
+    },
+    saas: {
         color: '#315f8c',
         accentColor: '#1d3f61',
         icon: '{ }',
-        label: 'Backend',
+        label: 'SaaS & Realtime',
         shape: 'monitor',
     },
-    product: {
-        color: '#7258a8',
-        accentColor: '#49366f',
-        icon: '◆',
-        label: 'Product',
-        shape: 'tv',
-    },
-    frontend: {
-        color: '#2f8175',
-        accentColor: '#1e5b52',
-        icon: '◫',
-        label: 'Frontend',
-        shape: 'monitor',
-    },
-    devops: {
+    payments: {
         color: '#b16a2c',
         accentColor: '#75451d',
-        icon: '∞',
-        label: 'DevOps',
+        icon: '💳',
+        label: 'Payments & APIs',
         shape: 'tv',
     },
     leadership: {
         color: '#9b4f62',
         accentColor: '#66303e',
-        icon: '↗',
-        label: 'Leadership',
+        icon: '👥',
+        label: 'Team Lead',
         shape: 'phone',
     },
 };
 
 export const CONTENT_DATA = [
     {
-        id: 'backend-systems',
-        platform: 'backend',
-        title: 'Scalable Backend Systems',
-        description: 'Designing modular NestJS services with TypeScript, PostgreSQL, Prisma, Redis, BullMQ, Socket.IO, and secure role-based access.',
-        date: '2026-01-01',
+        id: 'creative-3d-motion',
+        platform: 'creative',
+        title: 'Three.js 3D & GSAP Motion Engineering',
+        description: 'Building immersive 3D product visualizers (Rotimatic) with Three.js, Lenis smooth scrolling, and dynamic GSAP timelines across high-traffic commercial web applications.',
+        date: '2026-02-01',
     },
     {
-        id: 'product-engineering',
-        platform: 'product',
-        title: 'Product-Minded Engineering',
-        description: 'Turning business requirements into maintainable products with clear user journeys, reliable APIs, payments, and measurable outcomes.',
-        date: '2025-12-01',
+        id: 'enterprise-wordpress',
+        platform: 'wordpress',
+        title: 'Deep WordPress Architecture & Systems',
+        description: 'Extending WordPress far beyond standard themes: Custom $wpdb EAV modeling, double-entry accounting ledgers, GraphQL integrations, and high-performance script deferring.',
+        date: '2026-01-15',
     },
     {
-        id: 'frontend-experiences',
-        platform: 'frontend',
-        title: 'Interactive Web Experiences',
-        description: 'Building responsive interfaces with Next.js, React, Three.js, React Three Fiber, and GSAP while keeping performance and accessibility in focus.',
-        date: '2025-11-01',
+        id: 'realtime-orderbook',
+        platform: 'saas',
+        title: 'Real-Time Order Books & eKYC Workflows',
+        description: 'Architecting B2C trading platforms (CaskXchange) with Next.js 15, React 19, Socket.IO live Ask/Bid matching, and webcam-based OCR facial verification.',
+        date: '2025-12-10',
     },
     {
-        id: 'delivery-devops',
-        platform: 'devops',
-        title: 'Reliable Delivery & DevOps',
-        description: 'Shipping applications with Docker, Docker Compose, CI/CD pipelines, Nginx, caching, queues, monitoring, and production-minded workflows.',
-        date: '2025-10-01',
+        id: 'payments-webhooks',
+        platform: 'payments',
+        title: 'Resilient Payment Gateways & Webhooks',
+        description: 'Integrating PayOS (VietQR) with HMAC-SHA256 signature verification, Stripe Connect workflows, automated eSIM inventory synchronization, and webhook idempotency.',
+        date: '2025-11-05',
     },
     {
-        id: 'team-leadership',
+        id: 'team-lead-delivery',
         platform: 'leadership',
-        title: 'Mentoring & Team Growth',
-        description: 'Supporting junior developers through code reviews, technical workshops, clean architecture guidance, and practical system design.',
-        date: '2025-09-01',
+        title: 'Team Leadership & Direct Client Discovery',
+        description: 'Leading a 3-developer team, translating complex business demands into clean sprints, mentoring junior engineers from zero, and delivering SaaS solutions on schedule.',
+        date: '2025-10-01',
     },
 ];
 

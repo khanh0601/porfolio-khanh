@@ -95,6 +95,239 @@ const PictureContent = ({ imagePath, imagePaintedPath, width, height, isPainted 
     );
 };
 
+const createSloganCanvas = (isColor = false) => {
+    const canvas = document.createElement('canvas');
+    canvas.width = 2048;
+    canvas.height = 1080;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return canvas;
+
+    // Background paper
+    ctx.fillStyle = isColor ? '#fbf8f2' : '#f9f8f5';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Subtle paper grain
+    ctx.fillStyle = isColor ? 'rgba(180, 150, 100, 0.03)' : 'rgba(0, 0, 0, 0.02)';
+    for (let i = 0; i < 400; i++) {
+        const x = Math.random() * canvas.width;
+        const y = Math.random() * canvas.height;
+        ctx.fillRect(x, y, Math.random() * 3 + 1, Math.random() * 3 + 1);
+    }
+
+    // Outer sketched double border
+    ctx.save();
+    ctx.strokeStyle = isColor ? '#8c7853' : '#333333';
+    ctx.lineWidth = 4;
+    ctx.strokeRect(36, 36, canvas.width - 72, canvas.height - 72);
+
+    ctx.strokeStyle = isColor ? 'rgba(140, 120, 83, 0.5)' : 'rgba(50, 50, 50, 0.4)';
+    ctx.lineWidth = 1.5;
+    ctx.strokeRect(48, 48, canvas.width - 96, canvas.height - 96);
+
+    // Decorative corner markers
+    const corners = [
+        [54, 54], [canvas.width - 54, 54],
+        [54, canvas.height - 54], [canvas.width - 54, canvas.height - 54]
+    ];
+    ctx.strokeStyle = isColor ? '#c0392b' : '#222222';
+    ctx.lineWidth = 3;
+    corners.forEach(([cx, cy]) => {
+        ctx.beginPath();
+        ctx.arc(cx, cy, 6, 0, Math.PI * 2);
+        ctx.stroke();
+    });
+    ctx.restore();
+
+    // Top Header: WORK ETHIC & CRAFTSMANSHIP
+    ctx.save();
+    ctx.textAlign = 'center';
+    ctx.font = '600 32px "Plus Jakarta Sans", "Inter", -apple-system, sans-serif';
+    ctx.fillStyle = isColor ? '#7b6848' : '#555555';
+    ctx.fillText('✦   MY WORK ETHIC & CRAFTSMANSHIP   ✦', canvas.width / 2, 140);
+
+    // Divider under header
+    ctx.strokeStyle = isColor ? '#c4b59d' : '#888888';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(canvas.width / 2 - 280, 165);
+    ctx.lineTo(canvas.width / 2 + 280, 165);
+    ctx.stroke();
+    ctx.restore();
+
+    // Decorative quotation marks
+    ctx.save();
+    ctx.font = 'bold 140px Georgia, serif';
+    ctx.fillStyle = isColor ? 'rgba(192, 57, 43, 0.15)' : 'rgba(0, 0, 0, 0.08)';
+    ctx.textAlign = 'center';
+    ctx.fillText('“', canvas.width / 2 - 580, 360);
+    ctx.fillText('”', canvas.width / 2 + 580, 560);
+    ctx.restore();
+
+    // Main Slogan Line 1
+    ctx.save();
+    ctx.textAlign = 'center';
+    ctx.font = 'bold 64px "Plus Jakarta Sans", "Inter", -apple-system, sans-serif';
+    ctx.fillStyle = isColor ? '#12253f' : '#1a1a1a';
+    ctx.fillText('Từng dòng code là một lời hứa,', canvas.width / 2, 320);
+
+    // Main Slogan Line 2
+    ctx.font = 'bold 68px "Plus Jakarta Sans", "Inter", -apple-system, sans-serif';
+    ctx.fillStyle = isColor ? '#8b0000' : '#111111';
+    ctx.fillText('Từng sản phẩm là một danh dự.', canvas.width / 2, 420);
+
+    // Subtitle / English Manifesto
+    ctx.font = 'italic 500 36px Georgia, "Times New Roman", serif';
+    ctx.fillStyle = isColor ? '#2c3e50' : '#444444';
+    ctx.fillText('“Build with integrity. Deliver with zero compromise.”', canvas.width / 2, 520);
+    ctx.restore();
+
+    // Middle separator with diamond
+    ctx.save();
+    ctx.strokeStyle = isColor ? '#c4b59d' : '#999999';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(canvas.width / 2 - 400, 600);
+    ctx.lineTo(canvas.width / 2 - 40, 600);
+    ctx.moveTo(canvas.width / 2 + 40, 600);
+    ctx.lineTo(canvas.width / 2 + 400, 600);
+    ctx.stroke();
+
+    // Diamond symbol
+    ctx.fillStyle = isColor ? '#c0392b' : '#333333';
+    ctx.beginPath();
+    ctx.moveTo(canvas.width / 2, 592);
+    ctx.lineTo(canvas.width / 2 + 10, 600);
+    ctx.lineTo(canvas.width / 2, 608);
+    ctx.lineTo(canvas.width / 2 - 10, 600);
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
+
+    // Core values banner
+    ctx.save();
+    ctx.textAlign = 'center';
+    ctx.font = '600 28px "Plus Jakarta Sans", "Inter", -apple-system, sans-serif';
+    ctx.fillStyle = isColor ? '#4a3b32' : '#555555';
+    ctx.fillText('TỈ MỈ TỪNG PIXEL  •  KIÊN ĐỊNH TỪNG LOGIC  •  CHỊU TRÁCH NHIỆM ĐẾN CÙNG', canvas.width / 2, 690);
+    ctx.restore();
+
+    // Bottom section: Seal stamp on left + Signature on right
+    ctx.save();
+    if (isColor) {
+        // Red Traditional Seal Stamp (Triện son bảo chứng chất lượng)
+        ctx.save();
+        ctx.strokeStyle = '#c0392b';
+        ctx.lineWidth = 4;
+        ctx.strokeRect(180, 800, 240, 110);
+        ctx.strokeStyle = 'rgba(192, 57, 43, 0.4)';
+        ctx.lineWidth = 1.5;
+        ctx.strokeRect(186, 806, 228, 98);
+
+        ctx.textAlign = 'center';
+        ctx.fillStyle = '#c0392b';
+        ctx.font = 'bold 24px "Plus Jakarta Sans", sans-serif';
+        ctx.fillText('CHẤT LƯỢNG', 300, 845);
+        ctx.font = 'bold 22px "Plus Jakarta Sans", sans-serif';
+        ctx.fillText('TRÁCH NHIỆM', 300, 885);
+        ctx.restore();
+    } else {
+        // Sketch stamp box
+        ctx.save();
+        ctx.strokeStyle = '#555555';
+        ctx.lineWidth = 2;
+        ctx.strokeRect(180, 810, 240, 100);
+        ctx.textAlign = 'center';
+        ctx.fillStyle = '#444444';
+        ctx.font = '600 20px "Plus Jakarta Sans", sans-serif';
+        ctx.fillText('PLEDGE OF QUALITY', 300, 850);
+        ctx.fillText('FULL OWNERSHIP', 300, 885);
+        ctx.restore();
+    }
+
+    // Right: Signature
+    ctx.textAlign = 'right';
+    ctx.font = 'italic 700 46px "Brush Script MT", "Caveat", "Dancing Script", Georgia, cursive';
+    ctx.fillStyle = isColor ? '#0d2238' : '#222222';
+    ctx.fillText('Trần Quang Khánh', canvas.width - 200, 850);
+
+    ctx.font = '500 24px "Plus Jakarta Sans", "Inter", sans-serif';
+    ctx.fillStyle = isColor ? '#6c7a89' : '#666666';
+    ctx.fillText('Front-end Creative & Full-Stack Engineer', canvas.width - 200, 895);
+    ctx.restore();
+
+    return canvas;
+};
+
+const SloganPoster = ({ width = 2.1, height = 1.15, isPainted = false }) => {
+    const { sketchTexture, paintedTexture } = useMemo(() => {
+        const sketchCanvas = createSloganCanvas(false);
+        const paintedCanvas = createSloganCanvas(true);
+
+        const sTex = new THREE.CanvasTexture(sketchCanvas);
+        sTex.colorSpace = THREE.SRGBColorSpace;
+        sTex.minFilter = THREE.LinearMipmapLinearFilter;
+        sTex.magFilter = THREE.LinearFilter;
+        sTex.generateMipmaps = true;
+        sTex.needsUpdate = true;
+
+        const pTex = new THREE.CanvasTexture(paintedCanvas);
+        pTex.colorSpace = THREE.SRGBColorSpace;
+        pTex.minFilter = THREE.LinearMipmapLinearFilter;
+        pTex.magFilter = THREE.LinearFilter;
+        pTex.generateMipmaps = true;
+        pTex.needsUpdate = true;
+
+        return { sketchTexture: sTex, paintedTexture: pTex };
+    }, []);
+
+    const materialRef = useRef();
+
+    useEffect(() => {
+        if (!materialRef.current) return;
+        if (isPainted) {
+            gsap.to(materialRef.current, {
+                uProgress: 1.0,
+                duration: 0.8,
+                ease: 'power2.out',
+                overwrite: true
+            });
+        } else {
+            gsap.to(materialRef.current, {
+                uProgress: 0.0,
+                duration: 0.5,
+                ease: 'power2.out',
+                overwrite: true
+            });
+        }
+    }, [isPainted]);
+
+    return (
+        <group position={[0, 0, 0.01]}>
+            {/* Painted version behind */}
+            <mesh position={[0, 0, -0.001]}>
+                <planeGeometry args={[width, height]} />
+                <meshBasicMaterial
+                    map={paintedTexture}
+                    transparent={false}
+                    side={THREE.DoubleSide}
+                />
+            </mesh>
+            {/* Sketch version front with revealMaterial */}
+            <mesh position={[0, 0, 0]}>
+                <planeGeometry args={[width, height]} />
+                <revealMaterial
+                    ref={materialRef}
+                    map={sketchTexture}
+                    transparent={true}
+                    alphaTest={0.01}
+                    side={THREE.DoubleSide}
+                    uProgress={0.0}
+                />
+            </mesh>
+        </group>
+    );
+};
+
 const InspectableFrame = ({ frame, wallX, frameTexture, framePaintedTexture, CABIN_SKETCH_URL, setCameraOverride }) => {
     const { camera, viewport } = useThree();
     const groupRef = useRef();
@@ -286,8 +519,14 @@ const InspectableFrame = ({ frame, wallX, frameTexture, framePaintedTexture, CAB
                 />
             </mesh>
 
-            {/* OBRAZEK WEWNĄTRZ */}
-            {frame.image && (
+            {/* OBRAZEK WEWNĄTRZ / SLOGAN */}
+            {frame.isSlogan ? (
+                <SloganPoster
+                    width={frame.imageWidth || 2.1}
+                    height={frame.imageHeight || 1.15}
+                    isPainted={isHovered || isInspected}
+                />
+            ) : frame.image ? (
                 <PictureContent
                     imagePath={frame.image}
                     imagePaintedPath={!isTouch ? frame.imagePainted : null}
@@ -295,7 +534,7 @@ const InspectableFrame = ({ frame, wallX, frameTexture, framePaintedTexture, CAB
                     height={frame.imageHeight || frame.height * 0.7}
                     isPainted={isHovered || isInspected}
                 />
-            )}
+            ) : null}
 
             {/* PODPIS */}
             {frame.signature && (
@@ -379,10 +618,9 @@ const CorridorDecorations = ({ segmentLength, zOffset, corridorWidth = 4, corrid
             height: 2.5 / 1.785,     // Legacy ratio 3200x1792
             y: 0.3,                  // Wysokość na ścianie
             id: 'frame-1',
-            // Custom setup for "rysuneknaobraz1.png"
-            image: '/textures/corridor/rysuneknaobraz1.webp',
-            imageWidth: 1.1,
-            imageHeight: 1.1,
+            isSlogan: true,
+            imageWidth: 2.1,
+            imageHeight: 1.15,
             offsetFromWall: 0.1, // Przesunięcie bliżej środka korytarza (0.1 unit)
         },
         {

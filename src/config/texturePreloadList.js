@@ -22,4 +22,5 @@ export const ENTRANCE_TEXTURES = [
     '/textures/entrance/bug_sketch.webp',
     '/textures/entrance/speech_bubble.webp',
     '/images/ink-splash.webp',
+    '/textures/corridor/avatar_real.png',
 ];
