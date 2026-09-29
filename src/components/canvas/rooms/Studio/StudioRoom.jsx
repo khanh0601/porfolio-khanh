@@ -9,7 +9,6 @@ import { TextureLoader } from 'three';
 import FloatingCodeParticles from './FloatingCodeParticles';
 import { PositionalAudio } from '@react-three/drei';
 import { useAudio } from '../../../../context/AudioManager';
-import { useStudioContent } from '../../../../hooks/useSanityData';
 import '../../shaders/RevealMaterial';
 import { isTouchDevice } from '../../../../utils/deviceDetect';
 import { usePaintMaterial } from '../Gallery/usePaintMaterial';
@@ -107,9 +106,8 @@ const StudioRoom = ({ showRoom, onReady, isExiting, isWarmup }) => {
     const { globalVolume, isMuted } = useAudio();
     const effectiveVolume = isMuted ? 0 : AUDIO_SETTINGS.volume * globalVolume;
 
-    // Pobieranie danych z Sanity.io (fallback do starych danych)
-    const sanityContent = useStudioContent();
-    const activeContent = sanityContent || CONTENT_DATA;
+    // Static portfolio content is the source of truth.
+    const activeContent = CONTENT_DATA;
 
     const audioRef = useRef();
     useEffect(() => {
@@ -614,7 +612,7 @@ const MonitorBlock = memo(({ item, meshRef, isSelected, onMonitorClick, disabled
     const matRef5 = useRef(); // -Z back
     const matRefs = [matRef0, matRef1, matRef2, matRef3, matRef4, matRef5];
 
-    // Check device types (prioritize Sanity 'device' field, fallback to platform defaults)
+    // Resolve the configured device shape.
     const deviceShape = item.device || (PLATFORM_CONFIG[item.platform]?.shape) || 'monitor';
     const isBlogMonitor = deviceShape === 'monitor';
     const isTvMonitor = deviceShape === 'tv';
@@ -864,4 +862,3 @@ const MonitorBlock = memo(({ item, meshRef, isSelected, onMonitorClick, disabled
 });
 
 export default StudioRoom;
-

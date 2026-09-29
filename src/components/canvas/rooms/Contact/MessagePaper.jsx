@@ -147,16 +147,32 @@ const SmoothButton = ({ texture, onClick, position, size, text, fontPath }) => {
 };
 
 // Web3Forms API Key — loaded from environment variable so it's not exposed in the repo.
-// Set VITE_WEB3FORMS_KEY in .env (local dev) and in Cloudflare Pages dashboard (production).
+// Set VITE_WEB3FORMS_KEY locally and in Vercel Project Settings.
 const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY || '';
 
 // Only these domains are allowed to submit the form.
-// Anyone cloning the repo and running on localhost will be silently blocked.
+// Add the project's Vercel domain through VITE_ALLOWED_ORIGINS when needed.
+const configuredOrigins = (import.meta.env.VITE_ALLOWED_ORIGINS || '')
+    .split(',')
+    .map(origin => origin.trim().toLowerCase())
+    .filter(Boolean);
+
+const configuredSiteHost = (() => {
+    try {
+        return import.meta.env.VITE_SITE_URL
+            ? new URL(import.meta.env.VITE_SITE_URL).hostname.toLowerCase()
+            : '';
+    } catch {
+        return '';
+    }
+})();
+
 const ALLOWED_ORIGINS = [
-    'itomdev.com',
-    'www.itomdev.com',
-    'portfolio-itom.pages.dev',
-];
+    'localhost',
+    '127.0.0.1',
+    configuredSiteHost,
+    ...configuredOrigins,
+].filter(Boolean);
 
 // ═══════════════════════════════════════════════════════════════════════
 // 2026 Advanced Anti-Spam System

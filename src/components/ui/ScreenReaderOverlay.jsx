@@ -1,5 +1,4 @@
 import { useScene } from '../../context/SceneContext';
-import { useGalleryProjects, useStudioContent, useAwards } from '../../hooks/useSanityData';
 import '../../styles/ScreenReaderOverlay.scss';
 
 /**
@@ -12,11 +11,6 @@ import '../../styles/ScreenReaderOverlay.scss';
 const ScreenReaderOverlay = () => {
     const { hasEntered, isInRoom, currentRoom, teleportTo, requestExit } = useScene();
     
-    // Pobieranie danych do wygenerowania niewidocznego HTML-a dla SEO / robotów
-    const projects = useGalleryProjects();
-    const studio = useStudioContent();
-    const awards = useAwards();
-
     return (
         <div className="sr-overlay" role="complementary" aria-label="Accessible navigation for 3D portfolio">
             {/* Skip to content link */}
@@ -26,11 +20,11 @@ const ScreenReaderOverlay = () => {
 
             {/* Main accessible navigation */}
             <nav id="sr-main-nav" className="sr-only" aria-label="Portfolio rooms">
-                <h1>ITom — Creative Developer Portfolio</h1>
+                <h1>Trần Quang Khánh — Full-Stack Developer Portfolio</h1>
                 <h2>Portfolio Navigation</h2>
 
                 {!hasEntered && (
-                    <p>Welcome to ITom's interactive 3D portfolio. Click or press Enter on the doors to enter.</p>
+                    <p>Welcome to Trần Quang Khánh's interactive 3D portfolio. Click or press Enter on the doors to enter.</p>
                 )}
 
                 {hasEntered && !isInRoom && (
@@ -89,23 +83,19 @@ const ScreenReaderOverlay = () => {
                                 <h3>My Projects</h3>
                                 <p>Browse through my portfolio projects displayed on paper cards. Click on a project card to see details and visit the live site.</p>
                                 
-                                {projects && projects.length > 0 && (
-                                    <ul>
-                                        {projects.map((p, i) => (
-                                            <li key={i}>
-                                                <h4>{p.title}</h4>
-                                                <p>{p.description}</p>
-                                                {p.url && <a href={p.url}>Visit {p.title}</a>}
-                                            </li>
-                                        ))}
-                                    </ul>
-                                )}
                             </div>
                         )}
                         {currentRoom === 'contact' && (
                             <div aria-label="Contact room content">
                                 <h3>Contact Me</h3>
-                                <p>Find my social media links displayed as floating barrels. Click to visit my profiles on LinkedIn, GitHub, and other platforms.</p>
+                                <p>Connect with me through LinkedIn, GitHub, Zalo, WhatsApp, or email.</p>
+                                <ul>
+                                    <li><a href="mailto:tranquangkhanh2k1qv@gmail.com">Email Trần Quang Khánh</a></li>
+                                    <li><a href="https://github.com/khanh0601">GitHub</a></li>
+                                    <li><a href="https://www.linkedin.com/in/trần-quang-khánh-958aa62a0/">LinkedIn</a></li>
+                                    <li><a href="https://zalo.me/0392728283">Zalo</a></li>
+                                    <li><a href="https://wa.me/84392728283">WhatsApp</a></li>
+                                </ul>
                             </div>
                         )}
                         {currentRoom === 'studio' && (
@@ -113,17 +103,6 @@ const ScreenReaderOverlay = () => {
                                 <h3>The Studio</h3>
                                 <p>Explore my experience and skills on rotating monitors. Click a monitor to read detailed information about my work.</p>
 
-                                {studio && studio.length > 0 && (
-                                    <ul>
-                                        {studio.map((s, i) => (
-                                            <li key={i}>
-                                                <h4>{s.title} ({s.platform})</h4>
-                                                <p>{s.description}</p>
-                                                {s.url && <a href={s.url}>View content</a>}
-                                            </li>
-                                        ))}
-                                    </ul>
-                                )}
                             </div>
                         )}
 

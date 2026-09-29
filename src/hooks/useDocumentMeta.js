@@ -12,28 +12,28 @@ import { useScene } from '../context/SceneContext';
 const ROOM_META = {
     null: {
         path: '/',
-        title: 'ITom — Creative 3D Portfolio',
-        description: 'Interactive 3D developer portfolio by Tomasz "ITom" Szmajda. Explore WebGL experiments, React projects & GSAP animations in a hand-drawn gallery.',
+        title: 'Trần Quang Khánh — Full-Stack Developer Portfolio',
+        description: 'Interactive portfolio of Trần Quang Khánh, a product-minded full-stack developer focused on scalable systems and creative web experiences.',
     },
     about: {
         path: '/about',
-        title: 'About Me — ITom Portfolio',
-        description: 'Learn about Tomasz "ITom" Szmajda — a creative frontend developer specializing in 3D web experiences, React, Three.js, and GSAP animations.',
+        title: 'About Trần Quang Khánh — Full-Stack Developer',
+        description: 'Learn about Trần Quang Khánh, his engineering experience, technical stack, leadership, and product-focused approach.',
     },
     gallery: {
         path: '/gallery',
-        title: 'Gallery & Projects — ITom Portfolio',
-        description: 'Browse the interactive 3D gallery of web development projects by ITom. Each project is displayed as a hand-drawn card you can flip and explore.',
+        title: 'Projects — Trần Quang Khánh Portfolio',
+        description: 'Explore full-stack, backend, e-commerce, and interactive web projects built by Trần Quang Khánh.',
     },
     studio: {
         path: '/studio',
-        title: 'The Studio — ITom Portfolio',
-        description: 'Explore ITom\'s content studio — YouTube videos, blog posts, and TikToks displayed on floating monitors in an immersive 3D space.',
+        title: 'Experience & Skills — Trần Quang Khánh',
+        description: 'Explore Trần Quang Khánh\'s backend systems, frontend engineering, DevOps, mentoring, and product development experience.',
     },
     contact: {
         path: '/contact',
-        title: 'Contact — ITom Portfolio',
-        description: 'Get in touch with Tomasz "ITom" Szmajda. Find social media links and contact information in this interactive 3D contact room.',
+        title: 'Contact — Trần Quang Khánh',
+        description: 'Contact Trần Quang Khánh by email, LinkedIn, GitHub, Zalo, or WhatsApp.',
     },
 };
 
@@ -82,12 +82,14 @@ export function useDocumentMeta() {
         if (ogDesc) ogDesc.setAttribute('content', meta.description);
 
         const ogUrl = document.querySelector('meta[property="og:url"]');
-        if (ogUrl) ogUrl.setAttribute('content', `https://itomdev.com${meta.path}`);
+        const configuredSiteUrl = import.meta.env.VITE_SITE_URL?.replace(/\/$/, '');
+        const siteUrl = configuredSiteUrl || window.location.origin;
+        if (ogUrl) ogUrl.setAttribute('content', `${siteUrl}${meta.path}`);
 
         // Update canonical link to ensure virtual routes are correctly indexable as separate pages
         const canonicalTag = document.querySelector('link[rel="canonical"]');
         if (canonicalTag) {
-            canonicalTag.setAttribute('href', `https://itomdev.com${meta.path}`);
+            canonicalTag.setAttribute('href', `${siteUrl}${meta.path}`);
         }
 
         // Push to browser history (only if not handling a popstate event and room actually changed)

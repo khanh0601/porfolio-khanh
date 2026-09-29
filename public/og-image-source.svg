@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f6f3ea"/>
+  <path d="M35 35 Q600 15 1165 38 L1150 592 Q600 615 38 590 Z" fill="none" stroke="#171717" stroke-width="8"/>
+  <path d="M54 55 Q610 35 1144 58 L1132 570 Q590 592 58 570 Z" fill="none" stroke="#171717" stroke-width="3"/>
+  <circle cx="1040" cy="130" r="62" fill="#ffe18a" stroke="#171717" stroke-width="5"/>
+  <path d="M980 490 Q1080 430 1140 500" fill="none" stroke="#5b8fc8" stroke-width="26" stroke-linecap="round" opacity=".7"/>
+  <g fill="#171717" font-family="Arial, Helvetica, sans-serif">
+    <text x="105" y="195" font-size="36" letter-spacing="5">PORTFOLIO</text>
+    <text x="100" y="310" font-size="76" font-weight="700">TRẦN QUANG KHÁNH</text>
+    <text x="105" y="385" font-size="35">Product-Minded Full-Stack &amp; Creative Developer</text>
+    <text x="105" y="480" font-size="28">NestJS · Next.js · React · Three.js · Product Engineering</text>
+  </g>
+  <path d="M105 520 Q430 545 760 515" fill="none" stroke="#171717" stroke-width="5" stroke-linecap="round"/>
+</svg>

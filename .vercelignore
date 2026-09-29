@@ -1,0 +1,5 @@
+.agent
+.github
+node_modules
+dist
+TODO.md

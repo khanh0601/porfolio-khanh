@@ -12,7 +12,6 @@ import PaperMaterial from './PaperMaterial';
 import GalleryClouds from './GalleryClouds';
 import { useAudio } from '../../../../context/AudioManager';
 import { usePaintMaterial } from './usePaintMaterial';
-import { useGalleryProjects } from '../../../../hooks/useSanityData';
 
 // Reusable Vector3 to avoid allocations in useFrame
 const _tempScale = new THREE.Vector3();
@@ -38,8 +37,8 @@ const FALLBACK_PROJECTS = [
     {
         id: 'caskxchange',
         title: 'CASKXCHANGE',
-        front: '/textures/gallery/youngmultiprzod.webp',
-        painted: '/textures/gallery/youngmultiprzod_painted.webp',
+        front: '/textures/gallery/project-card.svg',
+        painted: '/textures/gallery/project-card-painted.svg',
         url: 'https://demo-projects-lake.vercel.app/',
         description: 'B2C Luxury Whisky Cask Trading Marketplace. Real-time Ask/Bid order book with Socket.IO, multi-step webcam eKYC facial capture, NextAuth RBAC, and Stripe Connect custom payouts.',
         techStack: ['/textures/gallery/reactlogo.webp', '/textures/gallery/tailwindlogo.webp', '/textures/gallery/jslogo.webp']
@@ -47,8 +46,8 @@ const FALLBACK_PROJECTS = [
     {
         id: 'meetrip',
         title: 'MEETRIP',
-        front: '/textures/gallery/monetuneprzod.webp',
-        painted: '/textures/gallery/monetuneprzod_painted.webp',
+        front: '/textures/gallery/project-card.svg',
+        painted: '/textures/gallery/project-card-painted.svg',
         url: 'https://meetrip.id.vn',
         description: 'Global eSIM Travel & Telecommunications Platform. Scalable NestJS backend with Prisma & PostgreSQL, multi-payment gateway (PayOS, SePay VietQR, PayPal), Redis 7 BullMQ queues, and Docker CI/CD.',
         techStack: ['/textures/gallery/jslogo.webp', '/textures/gallery/htmllogo.webp', '/textures/gallery/csslogo.webp']
@@ -56,8 +55,8 @@ const FALLBACK_PROJECTS = [
     {
         id: 'rotimatic',
         title: 'ROTIMATIC',
-        front: '/textures/gallery/timberkittyprzod.webp',
-        painted: '/textures/gallery/timberkittyprzod_painted.webp',
+        front: '/textures/gallery/project-card.svg',
+        painted: '/textures/gallery/project-card-painted.svg',
         url: 'https://rotimatic.com/',
         description: 'Global E-commerce platform featuring interactive 3D product rendering using Three.js, smooth GSAP and Lenis micro-interactions, and custom Shopify Liquid templates.',
         techStack: ['/textures/gallery/jslogo.webp', '/textures/gallery/htmllogo.webp', '/textures/gallery/csslogo.webp']
@@ -65,8 +64,8 @@ const FALLBACK_PROJECTS = [
     {
         id: 'timematch',
         title: 'TIMEMATCH',
-        front: '/textures/gallery/bioprzod.webp',
-        painted: '/textures/gallery/bioprzod_painted.webp',
+        front: '/textures/gallery/project-card.svg',
+        painted: '/textures/gallery/project-card-painted.svg',
         url: 'https://demo-projects-lake.vercel.app/',
         description: 'Appointment Scheduling SaaS platform with 40+ pages covering booking, team collaboration, OAuth 2.0 with Google/Microsoft/Zoom, and calendar synchronization.',
         techStack: ['/textures/gallery/reactlogo.webp', '/textures/gallery/jslogo.webp', '/textures/gallery/csslogo.webp']
@@ -208,9 +207,8 @@ const GalleryRoom = ({ showRoom, onReady, isExiting, isWarmup }) => {
     // We use matchMedia('(hover: hover)') to detect devices with a cursor/hover capability
     const [canHover, setCanHover] = useState(() => typeof window !== 'undefined' ? window.matchMedia('(hover: hover)').matches : true);
 
-    // Pobieranie danych z Sanity.io (fallback do starych danych)
-    const sanityProjects = useGalleryProjects();
-    const activeProjects = sanityProjects || FALLBACK_PROJECTS;
+    // Static project data is the source of truth.
+    const activeProjects = FALLBACK_PROJECTS;
 
     useEffect(() => {
         const mq = window.matchMedia('(hover: hover)');

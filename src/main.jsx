@@ -2,10 +2,10 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
 
-// --- Console Signature for Awwwards Judges ---
+// --- Portfolio console signature ---
 if (typeof window !== 'undefined') {
   console.log(
-    '%c TOM KING %c PORTFOLIO %c',
+    '%c TRẦN QUANG KHÁNH %c PORTFOLIO %c',
     'background: #111; color: #fff; padding: 5px 10px; font-weight: bold; border-radius: 3px 0 0 3px;',
     'background: #f33; color: #fff; padding: 5px 10px; font-weight: bold; border-radius: 0 3px 3px 0;',
     'background: transparent'

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 2048">
+  <rect width="1024" height="2048" fill="#fbfaf5"/>
+  <g fill="none" stroke="#171717" stroke-linecap="round">
+    <path stroke-width="12" d="M70 70 Q500 45 950 78 L935 1960 Q520 1990 68 1965 Z"/>
+    <path stroke-width="5" d="M88 92 Q520 70 925 98 L914 1935 Q490 1960 92 1938 Z"/>
+    <path stroke-width="7" d="M150 510 Q510 470 875 515 M145 1500 Q520 1540 880 1495"/>
+  </g>
+  <g fill="#171717" text-anchor="middle" font-family="Arial, sans-serif">
+    <text x="512" y="310" font-size="58" font-weight="700">TRẦN QUANG KHÁNH</text>
+    <text x="512" y="395" font-size="38">SELECTED PROJECT</text>
+    <text x="512" y="900" font-size="92" font-weight="700">BUILD</text>
+    <text x="512" y="1020" font-size="92" font-weight="700">SHIP</text>
+    <text x="512" y="1140" font-size="92" font-weight="700">SCALE</text>
+    <text x="512" y="1720" font-size="38">FULL-STACK • BACKEND • PRODUCT</text>
+  </g>
+</svg>

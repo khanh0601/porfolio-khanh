@@ -1,4 +1,4 @@
-# 🎨 Portfolio ITOM — Master To-Do List
+# 🎨 KHANH Portfolio — Master To-Do List
 
 > **Cel:** Dopieścić portfolio do poziomu **AWWWARDS SOTD / FWA** — zero kompromisów.  
 > **Data startu:** 2026-02-13  
@@ -12,14 +12,14 @@
 - [X] Zbadać `SkyChunk.jsx` — obecny `CORRIDOR_CLIP_Z = -8` nie trzyma, chmury "uciekają" do korytarza
 - [X] Rozważyć dodanie clippingu per-kamera zamiast stałego Z-threshold
 - [X] Dodać testy wizualne — wejście/wyjście z About w obie strony
-- **Pliki:** [SkyChunk.jsx](file:///c:/Users/tomsz/Desktop/portfolio/portfolio-itom/src/components/canvas/rooms/About/SkyChunk.jsx), [InfiniteSkyManager.jsx](file:///c:/Users/tomsz/Desktop/portfolio/portfolio-itom/src/components/canvas/rooms/About/InfiniteSkyManager.jsx)
+- **Files:** `SkyChunk.jsx`, `InfiniteSkyManager.jsx`
 
 ### 2. Naprawić wyświetlanie monitorów po kliknięciu w The Studio
 - [X] Debugować `handleMonitorClick` w `StudioRoom.jsx` — kamera nie zawsze centruje monitora poprawnie
 - [X] Sprawdzić czy `openOverlay(item)` faktycznie otwiera overlay z poprawnymi danymi
 - [X] Przetestować na mobile i desktop — inne `responsiveParams`
 - [X] Poprawić `GlobalOverlay.jsx` — `ContentCard` jeśli nie pokazuje contentu poprawnie
-- **Pliki:** [StudioRoom.jsx](file:///c:/Users/tomsz/Desktop/portfolio/portfolio-itom/src/components/canvas/rooms/Studio/StudioRoom.jsx), [GlobalOverlay.jsx](file:///c:/Users/tomsz/Desktop/portfolio/portfolio-itom/src/components/ui/GlobalOverlay.jsx)
+- **Files:** `StudioRoom.jsx`, `GlobalOverlay.jsx`
 
 ---
 
@@ -32,7 +32,7 @@
   - [X] Zaprojektować UI — popup/overlay na canvas lub HTML overlay
   - [X] Dodać interakcję kliknięcia na kartę Award
   - [X] Animować rozwinięcie listy (GSAP)
-- **Pliki:** [InfiniteSkyManager.jsx](file:///c:/Users/tomsz/Desktop/portfolio/portfolio-itom/src/components/canvas/rooms/About/InfiniteSkyManager.jsx)
+- **Files:** `InfiniteSkyManager.jsx`
 
 ### 4. Dodać dekoracje do Corridor (jest pusty!)
 - [X] Istniejące dekoracje (`Doodles.jsx`) — zweryfikować co jest renderowane i czego brakuje
@@ -47,7 +47,7 @@
   - [X] Tabliczki z cytatami (motywacyjne/programistyczne)
 - [X] Rozłożyć dekoracje po obu stronach korytarza
 - [X] Dodać subtelne animacje (floating, pulsing)
-- **Pliki:** [Corridor.jsx](file:///c:/Users/tomsz/Desktop/portfolio/portfolio-itom/src/components/canvas/corridor/Corridor.jsx), [Doodles.jsx](file:///c:/Users/tomsz/Desktop/portfolio/portfolio-itom/src/components/canvas/corridor/Doodles.jsx), [CorridorWalls.jsx](file:///c:/Users/tomsz/Desktop/portfolio/portfolio-itom/src/components/canvas/corridor/CorridorWalls.jsx)
+- **Files:** `Corridor.jsx`, `Doodles.jsx`, `CorridorWalls.jsx`
 
 ### 4.5. Rozbudowa detali i ożywienie pokojów (Wytyczne z audio)
 - [ ] **The Gallery:** Dodać animowane mini-detale w tle, żeby ożywić scenę (np. dym z kominów, poruszające się dźwigi, lecące ptaki).
@@ -130,7 +130,7 @@
 - [X] Uzupełnić prawdziwe URL-e (YouTube, Blog, TikTok)
 - [X] Dodać thumbnails (prawdziwe grafiki lub wygenerowane)
 - [X] Zaktualizować daty i metryki
-- **Pliki:** [contentData.js](file:///c:/Users/tomsz/Desktop/portfolio/portfolio-itom/src/components/canvas/rooms/Studio/contentData.js)
+- **Files:** `contentData.js`
 
 ### 11. Performance & responsywność
 - [ ] Audit na mobile (szczególnie About — dużo clouds + milestones)

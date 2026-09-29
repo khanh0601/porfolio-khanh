@@ -1,4 +1,4 @@
-# 🎨 ITom Dev | Interactive 3D WebGL Portfolio
+# 🎨 Trần Quang Khánh | Interactive 3D Portfolio
 
 <div align="center">
   <img src="https://img.shields.io/badge/React-19-blue?style=for-the-badge&logo=react" alt="React" />
@@ -10,7 +10,7 @@
 
 <br/>
 
-Welcome to the open-source repository of **Tomasz "ITom" Szmajda's** interactive 3D Web Developer portfolio. This project pushes the limits of modern web technologies by blending spatial WebGL computing, complex React ecosystems, and highly optimized frontend engineering.
+Interactive portfolio of **Trần Quang Khánh**, a product-minded full-stack developer. The experience combines modern web engineering with an immersive React Three Fiber interface.
 
 > [!NOTE]
 > Ensure hardware acceleration is enabled in your browser settings to experience the smooth 60 FPS high-tier rendering of this application.
@@ -56,8 +56,8 @@ To run this application natively on your local machine:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/ITomPoland/portfolio-itom.git
-   cd portfolio-itom
+   git clone https://github.com/khanh0601/YOUR_REPOSITORY.git
+   cd YOUR_REPOSITORY
    ```
 
 2. **Install dependencies:**
@@ -72,7 +72,20 @@ To run this application natively on your local machine:
    ```
 
 > [!IMPORTANT]
-> Since this project heavily utilizes `vite-plugin-compression` and hundreds of high-res textures, your initial local load might take a few seconds as the dev-server buffers asset delivery. For performance testing, always run `npm run build && npm run preview`.
+> Since this project uses high-resolution 3D textures, the development server can feel slower than the optimized production output. For realistic performance testing, run `npm run build && npm run preview`.
+
+## Deploying to Vercel
+
+The repository includes `vercel.json` with the Vite build settings, SPA deep-link rewrites, security headers, and static-asset caching. Import the repository into Vercel with the project root set to this directory; no dashboard build overrides are required.
+
+Add these variables in **Project Settings → Environment Variables**:
+
+- `VITE_WEB3FORMS_KEY` — required for the contact form.
+- `VITE_SITE_URL` — the public production URL, used for canonical URLs and the sitemap.
+- `VITE_ALLOWED_ORIGINS` — comma-separated production and preview hostnames allowed to submit the contact form.
+- `VITE_POSTHOG_KEY` and `VITE_POSTHOG_HOST` — optional analytics.
+
+Apply contact-form variables to Production and Preview as appropriate. Vercel automatically adds `X-Robots-Tag: noindex` to standard Preview Deployments.
 
 ## 🤝 Contributing & Feedback
 
@@ -85,11 +98,11 @@ All PRs improving the shader physics, 3D math logic, or component memoization ru
 ## License
 
 The code in this repository is licensed under the [MIT License](LICENSE). 
-**Note:** All personal assets, 3D textures, images, and copywriting are copyright of Tomasz Szmajda and may not be reused or reproduced without explicit permission.
+**Note:** Personal content, images, and copywriting are copyright of Trần Quang Khánh and may not be reused without permission.
 3. Commit your Changes (`git commit -m 'feat: Added realistic liquid simulation to Contact Room'`)
 4. Push to the Branch (`git push origin feature/AmazingRoom`)
 5. Open a Pull Request
 
 ---
 
-*Designed and Developed by [Tomasz Szmajda (ITom Dev)](https://itomdev.com).*
+*Portfolio of [Trần Quang Khánh](https://github.com/khanh0601).*
